@@ -91,9 +91,11 @@ app.use((req, res, next) => {
  */
 
 const pages = require("./routes/pages");
+const produits = require("./routes/produits");
 
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
+app.use("/produits", produits);
 
 /**
  * 404 Page
