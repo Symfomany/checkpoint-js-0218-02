@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    h3="Créer un nouveau produit"
+
+    form(method="POST", action="/produits/enregistrer", enctype="multipart/form-data")
+        .form-group
+            label(for='reference') Référence
+            input.form-control(type='text', name='reference', placeholder='BB-XXXX-BB')
+
+            label(for='title') Titre
+            input.form-control(type='text', name='title', placeholder='Titre')
+            
+            label(for='score') Note
+            select.form-control(name='score')
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='3') 4
+                option(value='3') 5
+            
+            label(for='quantity') Quantité
+            input.form-control(type='text', name='quantity', placeholder='nombre requis (entre 0 et +)')
+
+            label(for='description') Description
+            textarea.form-control(name='description', required='required', rows='3')
+            
+            label(for='image') URL de l'image
+            input.form-control(type='text', name='image', placeholder='http://www...')
+
+            label(for='price') Prix HT
+            input.form-control(type='text', name='price', placeholder='nombre requis')
+            
+            label(for='vat') TVA
+            input.form-control(type='text', name='vat', placeholder='nombre requis')
+            
+            label(for='onSale') Note
+            select.form-control(name='onSale')
+                option(value='1') Activé
+                option(value='0') Désactivé       
+            
+            button(type="submit", class="btn btn-success mt-2") Enregistrer le nouveau produit
