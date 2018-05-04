@@ -68,12 +68,28 @@ const produits = [
 //   le calcul se fera par Longeur(L) x largeur(l) x Hauteur.
 //   Puis calculer et afficher en console le volume total de tous les produits.
 
-let filtreTVAVingt = produits
-  .filter(x => x.taxe.tva === 20)
-  .sort((a, b) => a.prix - b.prix);
-let sliceAndConvert = filtreTVAVingt.slice(filtreTVAVingt.length - 3).map(x => {
-  x.prixTTC = x.prix * (1 + x.taxe.tva / 100);
-  return x;
-});
+function troisPluscher(element) {
+  let filtreTVAVingt = element
+    .filter(x => x.taxe.tva === 20)
+    .sort((a, b) => a.prix - b.prix);
+  let sliceAndConvert = filtreTVAVingt
+    .slice(filtreTVAVingt.length - 3)
+    .map(x => {
+      x.prixTTC = x.prix * (1 + x.taxe.tva / 100);
+      return x;
+    });
+  return sliceAndConvert;
+}
 
-console.log(sliceAndConvert);
+let test = troisPluscher(produits);
+// console.log(test);
+
+function ajouterVolume(element) {
+  let elementmodified = element.map(x => {
+    x.volume = x.dimension.l * x.dimension.L * x.dimension.H;
+    return x;
+  });
+  return elementmodified;
+}
+let test2 = ajouterVolume(produits);
+console.log(test2);
