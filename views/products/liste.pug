@@ -10,18 +10,18 @@ block content
                 th(scope='col') Note du Produit
                 th(scope='col') Image
         tbody
-            each results in produits
+            each result in results
                 tr
-                    a(href=`/products/voir/${produits.Id}`) 
-                        td=produits.Id
-                    a(href=`/products/voir/${produits.Id}`) 
-                        td=produits.Reference
-                    a(href=`/products/voir/${produits.Id}`) 
-                        td=produits.Titre
-                    td=produits.Note
-                    td=produits.Image
-                    a(href=`/products/suppress/${produits.id}`)
-                    td Supprimer l'article
+                    td
+                        a(href=`/products/voir/${result.Id}`)=result.Id
+                    td
+                        a(href=`/products/voir/${result.Id}`)=result.Reference
+                    td
+                        a(href=`/products/voir/${result.Id}`)=result.Titre
+                    td=result.Note
+                    td=result.Image
+                    td
+                        a(href=`/products/suppress/${result.id}`) Supprimer l'article
     a.btn.btn-primary(href="/products/creation") Entrer un nouveau produit
     
 

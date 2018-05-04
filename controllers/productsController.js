@@ -9,8 +9,9 @@ class productsController {
    * @param {*} res
    */
   showProducts(req, res) {
-    db.produits.findAll({ order: [["Note", "DESC"]] }).then(results => {
-      res.render("products/liste", { results });
+    db.produits.findAll().then(results => {
+      console.log(res);
+      res.render("products/liste", { results: results });
     });
   }
   detail(req, res) {

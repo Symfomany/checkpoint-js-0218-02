@@ -14,6 +14,10 @@ const Produits = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      Descriptif: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      },
 
       Image: {
         type: DataTypes.STRING
@@ -22,6 +26,16 @@ const Produits = (sequelize, DataTypes) => {
       En_vente: {
         type: DataTypes.INTEGER,
         defaultValue: 1
+      },
+      Quantite: {
+        type: DataTypes.INTEGER
+      },
+
+      Prix: {
+        type: DataTypes.INTEGER
+      },
+      TVA: {
+        type: DataTypes.INTEGER
       }
     },
     {

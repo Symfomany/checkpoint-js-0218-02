@@ -1,9 +1,16 @@
 extends ../layout
 
 block content
-    h1= produit.Titre
-    p= produit.Reference
-    p= produit.Note
-    p= produit.Description
-    p= produit.Note
-    p= produit.Image
+    h1=result.Id
+    p=result.Titre
+    p=result.Reference
+    p=result.Descriptif
+
+    .card(style='width:400px')
+        img.card-img-top(src=`${result.Image}`, alt='Card image')
+        .card-body
+            h4.card-title=result.Titre
+            p.card-text=result.Reference
+                p=result.Descriptif
+            a.btn.btn-primary(href='#') 
+    
