@@ -85,15 +85,16 @@ app.use((req, res, next) => {
 /**
  * Middleware
  */
-
 /**
  * Routing
  */
 
 const pages = require("./routes/pages");
+const catalogue = require("./routes/catalogue");
 
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
+app.use("/catalogue", catalogue);
 
 /**
  * 404 Page
