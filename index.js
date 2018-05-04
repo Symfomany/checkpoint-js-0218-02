@@ -90,10 +90,12 @@ app.use((req, res, next) => {
  * Routing
  */
 
-const catalogue = require("./routes/catalogue");
+const produits = require("./routes/produits");
 
 app.get("/", (req, res) => res.render("index"));
-app.use("/", catalogue);
+
+// Jeu de route propre à la gestion d'articles
+app.use("/produits", produits);
 
 /**
  * 404 Page
