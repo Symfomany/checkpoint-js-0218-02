@@ -44,6 +44,7 @@ class ProduitsController {
   supprimer(req, res) {
     db.Produits.findById(req.params.id).then(produit => {
       produit.destroy().then(() => {
+        req.flash("info", `Le produit #${req.params.id} a bien été supprimé`);
         res.redirect("/produits/");
       });
     });

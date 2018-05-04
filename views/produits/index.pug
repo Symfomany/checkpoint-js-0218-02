@@ -2,6 +2,10 @@ extends ../layout
 
 block content
     h1.text-center Liste de nos produits
+    if (messages.info)
+        .text-center
+            .message.info
+            h2.badge.badge-info= messages.info
     table.table
         thead.text-center
             tr
