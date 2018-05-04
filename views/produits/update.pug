@@ -21,6 +21,9 @@ block content
             label(for='descriptif') Descriptif
             textarea#descriptif.form-control(type='text' name="descriptif")=`${produit.descriptif}`
         .form-group
+            label(for='image') Images
+            input#image.form-control(type='text', placeholder="ici l'URL de l'image" name="image")
+        .form-group
             label(for='prix') Etat de Stock
             input#prix.form-control(type='text', value=`${produit.quantite}` name='quantite')
         .form-group
