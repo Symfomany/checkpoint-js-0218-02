@@ -15,5 +15,8 @@ router.get("/produits", (req, res) => controller.productsListing(req, res));
 router.post("/produit/enregistrer", (req, res) =>
   controller.createProductEntry(req, res)
 );
+router.get("/produit/supprimer/:id", (req, res) =>
+  controller.deleteProductEntry(req, res)
+);
 
 module.exports = router;

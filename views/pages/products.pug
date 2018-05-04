@@ -13,6 +13,7 @@ block content
                     th(scope='col') Titre
                     th(scope='col') Note
                     th(scope='col') Image
+                    th(scope='col') Suppr
             tbody
                 each product in products
                     tr
@@ -29,3 +30,5 @@ block content
                             =product.score
                         td
                             img.img-thumbnail.rounded.mx-auto.d-block(src=`${product.image}`, alt='image' width="200px")
+                        td
+                            a.btn.btn-outline-dark(href=`produit/supprimer/${product.id}` role="button") Supprimer

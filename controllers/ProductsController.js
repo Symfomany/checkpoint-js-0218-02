@@ -30,9 +30,17 @@ class ProductsController {
     );
   }
   saveProduct(req, res) {
-    db.Articles.create(req.body).then(produit =>
+    db.Products.create(req.body).then(produit =>
       res.redirect(`/produits/${req.body.id}`)
     );
+  }
+
+  deleteProductEntry(req, res) {
+    db.Products.findById(req.params.id).then(product => {
+      product.destroy().then(() => {
+        res.redirect("/admin/produits");
+      });
+    });
   }
 }
 
