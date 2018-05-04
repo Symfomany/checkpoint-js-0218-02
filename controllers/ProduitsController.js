@@ -36,6 +36,7 @@ class ProduitsController {
         db.Produits.create(datas).then(() => res.redirect("/produits/"));
       });
     } else {
+      datas.image = `https://media.giphy.com/media/13XfETre3zugg0/giphy.gif`;
       db.Produits.create(datas).then(() => res.redirect("/produits/"));
     }
   }
