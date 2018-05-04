@@ -68,6 +68,7 @@ const produits = [
 //   le calcul se fera par Longeur(L) x largeur(l) x Hauteur.
 //   Puis calculer et afficher en console le volume total de tous les produits.
 
+//Retour des 3 plus chers avec de TVA 20 et ajout du prix TTC dans chacun d'entre eux
 function troisPluscher(element) {
   let filtreTVAVingt = element
     .filter(x => x.taxe.tva === 20)
@@ -82,8 +83,9 @@ function troisPluscher(element) {
 }
 
 let test = troisPluscher(produits);
-// console.log(test);
+console.log(test);
 
+// Ajout du Volume dans chaque element
 function ajouterVolume(element) {
   let elementmodified = element.map(x => {
     x.volume = x.dimension.l * x.dimension.L * x.dimension.H;
@@ -93,3 +95,16 @@ function ajouterVolume(element) {
 }
 let test2 = ajouterVolume(produits);
 console.log(test2);
+
+// Calcul du volume Total
+let volumeTotal = 0;
+for (const element of test2) {
+  volumeTotal += element.volume;
+}
+console.log(volumeTotal);
+
+let plusPetiteLargeur = produits.sort((a, b) => a.dimension.l - b.dimension.l);
+console.log(plusPetiteLargeur[0].dimension.l);
+
+let plusGrandeLongueur = produits.sort((a, b) => b.dimension.L - a.dimension.L);
+console.log(plusGrandeLongueur[0].dimension.L);
