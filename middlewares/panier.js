@@ -60,11 +60,26 @@ const produits = [
     taxe: { tva: 20 }
   }
 ];
-const expensive = .filter(word => word.length > 6);
-console.log(
-  produits
-    .sort(function(a, b) {
-      return a.prix - b.prix;
-    })
-    .reverse()
-);
+
+let volumeTotal = 0;
+
+function decrire(element) {
+  const ttc = element.prix * (1 + element.taxe.tva / 100);
+  let volumeUnitaire =
+    element.dimension.L * element.dimension.l * element.dimension.H;
+  volumeTotal += volumeUnitaire;
+  console.log(
+    `${
+      element.titre
+    } vaut ${ttc} € TTC (le volume de cet article vaut ${volumeUnitaire} cm³`
+  );
+}
+
+const expensive = produits
+  .filter(produit => produit.taxe.tva === 20)
+  .sort(function(a, b) {
+    return a.prix - b.prix;
+  })
+  .splice(4)
+  .map(elt => decrire(elt));
+console.log(`Le volume total de ces articles vaut : ${volumeTotal} cm³`);

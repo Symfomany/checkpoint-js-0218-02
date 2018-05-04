@@ -1,4 +1,16 @@
 div#content {
-    min-height: 600px;
-    padding-top: 10px;
+  min-height: 600px;
+  padding-top: 10px;
+}
+.jumbotron.text-center {
+  color: #fff;
+  background: linear-gradient(
+      217deg,
+      rgba(66, 9, 197, 0.7),
+      rgba(255, 0, 0, 0.7) 70.71%
+    ),
+    center / cover no-repeat url("../images/vinyle.jpg");
+}
+.jumbotron.text-center {
+  color: #fff;
 }
