@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1= "Liste des produits"
+    table.table.table-striped
+        thead
+            tr
+                th(scope='col') id
+                th(scope='col') Référence
+                th(scope='col') Titre
+                th(scope='col') Note
+                th(scope='col') Image
+
+        tbody
+            each produit in produits
+                tr
+                    th(scope='row')=produit.id
+                    td=produit.reference
+                    td=produit.titre
+                    td=produit.note
+                    td=produit.image
