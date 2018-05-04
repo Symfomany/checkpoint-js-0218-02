@@ -16,17 +16,11 @@ block content
             th(scope='col') image
 
         tbody
-            //- tr
-            //- th(scope='row') 1
-            //- each element in catalogue
-            //-     td id
-            //- tr
-            th(scope='row') 2
-            td Jacob
-            td Thornton
-            td @fat
+           each element in articles
             tr
-            th(scope='row') 3
-            td Larry
-            td the Bird
-            td @twitter
+                th=element.id
+                td=element.reference
+                td=element.titre
+                td=element.note
+                td=element.image 
+            
