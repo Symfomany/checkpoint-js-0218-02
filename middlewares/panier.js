@@ -60,3 +60,11 @@ const produits = [
     taxe: { tva: 20 }
   }
 ];
+const expensive = .filter(word => word.length > 6);
+console.log(
+  produits
+    .sort(function(a, b) {
+      return a.prix - b.prix;
+    })
+    .reverse()
+);
