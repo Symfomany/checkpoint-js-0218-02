@@ -8,9 +8,9 @@ class ProduitsController {
    * @param {*} req
    * @param {*} res
    */
-  liste(req, res) {
+  index(req, res) {
     db.Produits.findAll().then(produits => {
-      res.render("produits/liste", { produits });
+      res.render("produits/index", { produits });
     });
   }
 
