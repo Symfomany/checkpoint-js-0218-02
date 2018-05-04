@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    main(role='main')
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') Id
+                    th(scope='col') Reference
+                    th(scope='col') Titre
+                    th(scope='col') Note
+                    th(scope='col') Image
+            tbody
+                each product in products
+                    tr
+                        th(scope='row')
+                            =product.id
+                        td
+                            =product.reference
+                        td
+                            =product.title
+                        td
+                            =product.score
+                        td
+                            img.img-thumbnail.rounded.mx-auto.d-block(src=`${product.image}`, alt='image' width="200px")

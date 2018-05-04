@@ -7,6 +7,7 @@ const router = express.Router();
 const PagesController = require("../controllers/PagesController");
 const controller = new PagesController();
 
+router.get("/", (req, res) => controller.homeListing(req, res));
 router.get("/about", (req, res) => controller.about(req, res));
 
 /**

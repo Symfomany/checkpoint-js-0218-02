@@ -89,9 +89,11 @@ app.use((req, res, next) => {
  * Routing
  */
 
+const products = require("./routes/products");
 const pages = require("./routes/pages");
 
-app.get("/", (req, res) => res.render("index"));
+// app.get("/", (req, res) => res.render("index"));
+app.use("/admin", products);
 app.use("/", pages);
 
 /**

@@ -1,10 +1,39 @@
 extends layout
 
 block content
-    section.jumbotron.text-center
+    main(role='main')
+      section.jumbotron.text-center
         .container
-            p.lead.text-muted
-            ul
-                li Le Cartel: - ".... Tu es ..... Heisenberg !!!"
-                li Walter White: - "Et comment que c'est moi ! "
-            img(src="https://media.giphy.com/media/3oFzmkkwfOGlzZ0gxi/giphy.gif")
+          h1.jumbotron-heading J'❤ le vinyle !
+          if products.length > 2
+            p.text-muted=`C'est dingue, on a ${products.length} références en stock !`    
+          p.lead.text-muted
+            | Toutes les semaines, J'aime le vinyle se penche sur une réédition vinyle remarquable et sélectionne une dizaine d'albums hautement recommandables à mettre sur ses platines.
+          p
+            a.btn.btn-primary.my-2(href='#') Main call to action
+            a.btn.btn-secondary.my-2(href='#') Secondary action
+      .album.py-5.bg-light
+        .container
+            .row
+                each product in products
+                    .col-md-4
+                        .card.mb-4.box-shadow
+                            img.card-img-top(src=`${product.image}`, alt='Card image cap')
+                            .card-body
+                                p.card-text=product.title
+                                .d-flex.justify-content-between.align-items-center
+                                    .btn-group
+                                        button.btn.btn-sm.btn-outline-secondary(type='button') Voir le detail
+                                        button.btn.btn-sm.btn-outline-secondary(type='button') Acheter vite !
+                                    small.text-muted 9 mins
+                        
+            
+
+
+
+
+
+
+
+
+    
