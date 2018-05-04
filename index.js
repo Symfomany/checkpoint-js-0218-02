@@ -14,7 +14,6 @@ const debug = require("debug")("http"); // Module for Debug
 const logger = require("morgan"); // Module for Log
 const bodyParser = require("body-parser"); // Module for POST/GET datas
 const cookieParser = require("cookie-parser"); // Module for cookie in Session
-const sassMiddleware = require("node-sass-middleware");
 const session = require("express-session");
 
 const bcrypt = require("bcrypt-nodejs");
