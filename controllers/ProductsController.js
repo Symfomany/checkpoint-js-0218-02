@@ -1,16 +1,17 @@
 const db = require(`../models/index.js`);
-/**
- * Class Pages Controller
- */
+const sequelize = require(`sequelize`);
+
 class ProductsController {
   productsListing(req, res) {
-    db.Products.findAll().then(products => {
-      //  ... sending to the view
-      res.render("pages/products", {
-        // we send the results
-        products
-      });
-    });
+    db.Products.findAll({ order: sequelize.literal("(score) DESC") }).then(
+      products => {
+        //  ... sending to the view
+        res.render("pages/products", {
+          // we send the results
+          products
+        });
+      }
+    );
   }
 }
 

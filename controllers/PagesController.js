@@ -1,4 +1,5 @@
 const db = require(`../models/index.js`);
+const sequelize = require(`sequelize`);
 /**
  * Class Pages Controller
  */
