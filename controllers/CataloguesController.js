@@ -32,10 +32,10 @@ class CataloguesController {
   }
 
   enregistrer(req, res) {
-    if (req.body.enVente == undefined) {
-      req.body.enVente = "0";
-    }
-    
+    // if (req.body.enVente == undefined) {
+    //   req.body.enVente = "0";
+    // }
+    let datasCatalogues = req.body;
     db.Catalogues.create(datasCatalogues).then(produit => {
       res.redirect("catalogues/voir");
     });
