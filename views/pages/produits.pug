@@ -2,20 +2,36 @@ extends ../layout
 
 block content
     h1= "Liste des produits"
-    table.table.table-striped
+    a.btn.btn-primary(href=`/produits/creer`) Créez un nouveau produit
+
+    table.table.table-striped.table-responsive
+        caption Liste des produits
         thead
             tr
-                th(scope='col') id
-                th(scope='col') Référence
-                th(scope='col') Titre
-                th(scope='col') Note
-                th(scope='col') Image
+                th(scope='col').text-center Id
+                th(scope='col').text-center Référence
+                th(scope='col').text-center Titre
+                th(scope='col').text-center Note
+                th(scope='col').text-center Image
+                th(scope='col').text-center Supression article
 
         tbody
             each produit in produits
                 tr
-                    th(scope='row')=produit.id
-                    td=produit.reference
-                    td=produit.titre
+                    th(scope='row')
+                        a(href=`/produits/voir/${produit.id}`)=produit.id
+                    td
+                        a(href=`/produits/voir/${produit.id}`)=produit.reference
+                    td
+                        a(href=`/produits/voir/${produit.id}`)=produit.titre
                     td=produit.note
-                    td=produit.image
+                        if  produit.note===5
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                    td
+                        img(src=`${produit.image}`)
+                    td
+                        a.btn.btn-danger(href=`/produits/supprimer/${produit.id}`) Supprimer
