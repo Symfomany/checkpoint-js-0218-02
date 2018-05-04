@@ -9,5 +9,6 @@ const controller = new ProduitsController();
 
 router.get("/", (req, res) => controller.index(req, res));
 router.get("/details:id(\\d+)", (req, res) => controller.details(req, res));
+router.get("/creer", (req, res) => controller.creer(req, res));
 
 module.exports = router;

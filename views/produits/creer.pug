@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+    h1.text-center=`Ajouter un nouveau produit`
+    form(method="POST", action="/produits/enregistrer", enctype="multipart/form-data")
+        .form-group
+            label Reference
+            |     
+            input.form-control(type='text', name="reference", placeholder='Format "AA-XXXX-BB"', required)
+            |   
+        .form-group
+            label Titre
+            |     
+            input.form-control(type='text', name="titre", placeholder=`ex: l'Anneau de Pouvoir`, required)
+            |   
+        .form-group
+            label Note
+            |     
+            select(class="form-control", name ="note")
+                option(value='1') 1/5
+                |       
+                option(value='2') 2/5
+                |       
+                option(value='3' selected) 3/5
+                |       
+                option(value='4') 4/5
+                |       
+                option(value='5') 5/5
+        .form-group
+            label Quantité
+            |     
+            input.form-control(type='text', name="quantité", placeholder=`ex: 3`, required)
+            | 
+        .form-group
+            label Image
+            |     
+            br
+            input(type="file", name="photo", accept="image/*", capture="capture")
+            |
+        .form-group
+            label Descriptif
+            |     
+            textarea.form-control(name="descriptif", placeholder=`ex: gagner 2 kg en 5 minutes`, cols="30", rows="3")
+            |
+        .form-group
+            label Prix
+            |     
+            input.form-control(type='text', name="prix", placeholder=`ex: 49.99`, required)
+            | 
+        .form-group
+            label TVA
+            |     
+            input.form-control(type='text', name="tva", placeholder=`ex: 10.5`, required)
+            | 
+        .form-check
+            input.form-check-input(type='checkbox', name="enVente", value='1', checked='')
+            |     
+            label.form-check-label(for='exampleCheck1') Mettre en vente
+            |   
+        button.btn.btn-primary(type='submit') Submit
+
+    .row
+        .col-12.text-center
+            a(href="/produits/") Retour à la liste des produits

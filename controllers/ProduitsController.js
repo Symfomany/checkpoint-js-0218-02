@@ -19,6 +19,10 @@ class ProduitsController {
       res.render("produits/details", { produit });
     });
   }
+
+  creer(req, res) {
+    res.render("produits/creer");
+  }
 }
 
 module.exports = ProduitsController;
