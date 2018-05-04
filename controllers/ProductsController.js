@@ -16,6 +16,11 @@ class ProductsController {
     //console.log("ok");
     res.render("pages/formCreateProduct");
   }
+  createProductEntry(req, res) {
+    db.Products.create(req.body).then(articles =>
+      res.redirect("/admin/produits")
+    );
+  }
   productsListing(req, res) {
     console.log("fonction listing");
     db.Products.findAll({ order: sequelize.literal("(score) DESC") }).then(

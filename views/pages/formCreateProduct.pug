@@ -3,7 +3,7 @@ extends ../layout
 block content
     h3="Créer un nouveau produit"
 
-    form(method="POST", action="/produits/enregistrer", enctype="multipart/form-data")
+    form(method="POST", action="enregistrer", enctype="multipart/form-data")
         .form-group
             label(for='reference') Référence
             input.form-control(type='text', name='reference', placeholder='BB-XXXX-BB')

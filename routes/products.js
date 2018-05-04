@@ -12,5 +12,8 @@ router.get("/produit/ajouter", (req, res) =>
 );
 router.get("/produit/:id", (req, res) => controller.viewProduct(req, res));
 router.get("/produits", (req, res) => controller.productsListing(req, res));
+router.post("/produit/enregistrer", (req, res) =>
+  controller.createProductEntry(req, res)
+);
 
 module.exports = router;
