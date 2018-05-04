@@ -37,10 +37,16 @@ class CataloguesController {
     }
 
     // console.log(req.body);
-        db.Categories.create(datasCatalogues).then(produit => {
-          
-          res.redirect("catalogues/voir");
-        });
+    db.Catalogues.create(datasCatalogues).then(produit => {
+      res.redirect("catalogues/voir");
+    });
+  }
+
+  supprimer(req, res) {
+    db.Catalogues.findById(req.params.id).then(article => {
+      article.destroy();
+      res.redirect("/categories/liste");
+    });
   }
 }
 module.exports = CataloguesController;
