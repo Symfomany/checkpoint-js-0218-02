@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    table.table
+        thead
+            tr
+                th(scope='col') Id Produit
+                th(scope='col') Ref Produit
+                th(scope='col') Titre Produit
+                th(scope='col') Note du Produit
+                th(scope='col') Image
+        tbody
+            each results in produits
+                tr
+                    a(href=`/products/voir/${produits.Id}`) 
+                        td=produits.Id
+                    a(href=`/products/voir/${produits.Id}`) 
+                        td=produits.Reference
+                    a(href=`/products/voir/${produits.Id}`) 
+                        td=produits.Titre
+                    td=produits.Note
+                    td=produits.Image
+                    a(href=`/products/suppress/${produits.id}`)
+                    td Supprimer l'article
+    a.btn.btn-primary(href="/products/creation") Entrer un nouveau produit
+    
+
+
+            
+

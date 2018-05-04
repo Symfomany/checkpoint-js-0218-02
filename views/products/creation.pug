@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .main.container
+        .row
+        h1.display-5 Entrer un nouveau produit
+        form(method='POST' action='/products/create')
+            div.form-group
+                label(for='Reference') Reference :
+                input.form-control(type='text', textarea='Ref' name='Reference')
+            div.form-group
+                label(for='Titre') Titre :
+                input.form-control(type='text',textarea='Titre' name='Titre')
+            div.form-group
+                label(for='Note') Note :
+                input.form-control(type='number', textarea='Note', name='Note')
+            div.form-group
+                label(for='Quantite') Quantité :
+                input.form-control(type='number', textarea='Quantité', name='Quantite')
+            div.form-group
+                label(for='Image') Image :
+                input.form-control(type='url', textarea='image.png', name='Image')
+            div.form-group
+                label(for='Descriptif') Descriptif :
+                input.form-control(type='text', textarea='Descriptif',  name='Descriptif')
+            div.form-group
+                label(for='Prix') Prix :
+                input.form-control(type='number', textarea='Prix', name='Prix')
+            div.form-group
+                label(for='TVA') Taux de TVA :
+                input.form-control(type='number', textarea='TVA', name='TVA')
+                label(for='En_vente') Disponible :
+                input.form-control(type='radio', value='Oui', name='En_vente')
+                input.form-control(type='radio', value='Non', name='En_vente')
+            button.btn.btn-primary(type='submit') Valider
+
