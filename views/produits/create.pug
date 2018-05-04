@@ -27,7 +27,11 @@ block content
             label(for='tva') TVA
             input#tva.form-control(type='text', placeholder="ici la TVA a appliquer"  name='TVA')
         .form-check
-                input(class="form-check-input" id="hide" type='checkbox', name='enVente', value= "1")
-                label(class="form-check-label" for="hide") En Vente
+            label.radio-inline
+            input(type='radio', name='enVente' value='1')
+            | En vente
+            label.radio-inline
+            input(type='radio', name='enVente' value='0')
+            | Hors Vente
         button(type="submit", class="btn btn-success") Créer le produit
     

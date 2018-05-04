@@ -21,13 +21,20 @@ block content
             label(for='descriptif') Descriptif
             textarea#descriptif.form-control(type='text' name="descriptif")=`${produit.descriptif}`
         .form-group
+            label(for='prix') Etat de Stock
+            input#prix.form-control(type='text', value=`${produit.quantite}` name='quantite')
+        .form-group
             label(for='prix') Prix
             input#prix.form-control(type='text', value=`${produit.prix}` name='prix')
         .form-group
             label(for='tva') TVA
             input#tva.form-control(type='text', value=`${produit.tva}` name='TVA')
         .form-check
-                input(class="form-check-input" id="hide" type='checkbox', name='enVente', value= "1")
-                label(class="form-check-label" for="hide") En Vente
+            label.radio-inline
+            input(type='radio', name='enVente' value='1')
+            | En vente
+            label.radio-inline
+            input(type='radio', name='enVente' value='0')
+            | Hors Vente
         button(type="submit", class="btn btn-success") Modifier le produit
     
