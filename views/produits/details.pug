@@ -46,7 +46,13 @@ block content
                 |
                 td=`${produit.tva}`
                 |
-                td=`${produit.enVente}`
+                td
+                    div
+                        if (produit.enVente === true)
+                            i.fas.fa-check
+                        else
+                            i.fas.fa-times
+                        p= produit.enVente
                 |   
     .row
         .col-12.text-center
