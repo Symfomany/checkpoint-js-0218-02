@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h1="Page de catalogue"
+    .container
+        img(src="https://media.giphy.com/media/e3C4pNKkr9rji/giphy.gif" alt="Fry")
+        
+
+    table.table
+        thead
+            tr
+            th(scope='col') id
+            th(scope='col') ref
+            th(scope='col') titre
+            th(scope='col') note
+            th(scope='col') image
+
+        tbody
+            //- tr
+            //- th(scope='row') 1
+            //- each element in catalogue
+            //-     td id
+            //- tr
+            th(scope='row') 2
+            td Jacob
+            td Thornton
+            td @fat
+            tr
+            th(scope='row') 3
+            td Larry
+            td the Bird
+            td @twitter

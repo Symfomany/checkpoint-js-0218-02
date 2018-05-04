@@ -91,9 +91,12 @@ app.use((req, res, next) => {
  */
 
 const pages = require("./routes/pages");
+const catalogues = require("./routes/catalogues")
 
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
+//jeu de route propre à la gestion des catalogues
+app.use("/catalogues", catalogues)
 
 /**
  * 404 Page

@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "blog",
-    "port": 8889,
+    "password": "jecode4wcs",
+    "database": "checkpoint2",
+    "port": 3306,
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
