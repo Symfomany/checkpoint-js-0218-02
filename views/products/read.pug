@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  h1.title= product.titre
+
+  #infos.row
+    .col
+      p Référence: #{product.reference} | !{product.noteStars}
+
+    .col.text-right
+      a.btn.btn-outline-primary(href=`/products`, role="button") Liste des produits
+      a.btn.btn-outline-secondary(href=`/products/update/${product.id}`, role="button") Modifier
+      a.btn.btn-outline-danger(href=`/products/delete/${product.id}`, role="button") Supprimer
+
+
+  img.img-fluid(src=`${product.image}`, alt=`Image de ${product.titre}`)
+
+  p= product.descriptif

@@ -1,0 +1,78 @@
+extends ../layout
+
+block content
+  h1.title Créer un produit
+
+  #infos.row
+    .col.text-right
+      a.btn.btn-outline-primary(href=`/products`, role="button") Liste des produits
+
+  form(method="POST", action="/products/creating", enctype="multipart/form-data")
+    .form-group.row
+      label.col-sm-2.col-form-label(for='reference') Reference
+      .col-sm-10
+        input#reference.form-control(name="reference", type='text', placeholder='AA-XXXX-BB', aria-describedby="refBlock", required)
+        small#refBlock.form-text.text-muted
+          | Remplacer les X par des chiffres
+    .form-group.row
+      label.col-sm-2.col-form-label(for='title') Titre
+      .col-sm-10
+        input#title.form-control(name="titre", type='text', required)
+    .form-group.row
+      label.col-sm-2.col-form-label Note
+      .col-sm-10
+        select.form-control(name="note")
+          option Choisir une note
+          option(value="1") 1
+          option(value="2") 2
+          option(value="3") 3
+          option(value="4") 4
+          option(value="5") 5
+    .form-group.row
+      label.col-sm-2.col-form-label(for='quantite', required) Quantité
+      .col-sm-10
+        input#quantite.form-control(name="quantite", type='number', aria-describedby="quantityBlock")
+        small#quantityBlock.form-text.text-muted
+          | La quantité disponible dans le stock
+    .form-group.row
+      label.col-sm-2.col-form-label(for='image') Image
+      .col-sm-10
+        input#image.form-control(name="image", type='text', aria-describedby="imageBlock")
+        small#imageBlock.form-text.text-muted
+          | Url distante des image uniquement
+    fieldset.form-group
+      .row
+        legend.col-form-label.col-sm-2.pt-0 Actif
+        .col-sm-10
+          .form-check
+            input#gridRadios1.form-check-input(type='radio', name='enVente', value='1', checked='')
+            label.form-check-label(for='gridRadios1')
+              | Oui
+          .form-check
+            input#gridRadios2.form-check-input(type='radio', name='enVente', value='0')
+            label.form-check-label(for='gridRadios2')
+              | Non
+    .form-group.row
+      label.col-sm-2.col-form-label Prix
+      .col-sm-4
+        input#priceHT.form-control(name="prix", type='number', placeholder='Prix HT', aria-describedby="priceHTBlock", required)
+        small#priceHTBlock.form-text.text-muted
+          | Veuillez entrer le prix en HT
+      .col-sm-4
+        input#priceTVA.form-control(name="tva", type='number', placeholder='TVA: 20', aria-describedby="priceTVABlock")
+        small#priceTVABlock.form-text.text-muted
+          | Veuillez entrer la TVA en pourcetage sans le signe: 20
+      .col-sm-2
+        input#priceTTC.form-control(type='number', placeholder='Prix TTC', readonly, aria-describedby="priceTTCBlock")
+        small#priceTTCBlock.form-text.text-muted
+          | Le prix TTC calculé
+    .form-group.row
+      label.col-sm-2.col-form-label Descriptif
+      .col-sm-10
+        textarea.form-control(name="descriptif", cols="30", rows="10")
+    
+    .form-group.row
+      label.col-sm-2.col-form-label 
+      .col-sm-10
+        button.btn.btn-primary.mb-2(type='submit') Ajouter
+    

@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1.title Modifier: #{product.titre}
+
+  #infos.row
+    .col.text-right
+      a.btn.btn-outline-primary(href=`/products`, role="button") Liste des produits
+
+  .alert.alert-warning(role='alert')
+    h4.alert-heading Fonctionnalité en cours d'implémentation
+    p
+      | Cette fonctionnalité est en cours de test. Nous vous indiquerons quand vous pourrez l'utiliser.
+    hr
+    p.mb-0
+      | Merci de votre compréhension

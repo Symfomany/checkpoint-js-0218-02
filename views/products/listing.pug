@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  h1.title="Produits"
+
+  #infos.row
+    .col.text-right
+      a.btn.btn-outline-primary(href=`/products/create`, role="button") Créer un produit
+
+  table.table
+    thead
+      tr
+        th(scope='col') #
+        th(scope='col') Image
+        th(scope='col') Référence
+        th(scope='col') Titre
+        th(scope='col') Note
+        th(scope='col') Quantité
+        th(scope='col') Prix TTC
+        th(scope='col') Etat
+        th(scope='col') Actions
+    tbody
+      each product in products
+        tr
+          th(scope='row')
+            a(href=`/products/${product.id}`)= product.id
+          td
+            img.img-thumbnail(src=`${product.image}`, alt="Image du jeu ${product.title}")
+          td
+            a(href=`/products/${product.id}`)= product.reference
+          td
+            a(href=`/products/${product.id}`)= product.titre
+          td!= product.noteStars
+          td
+            a(href=`/products/quantity-plus/${product.id}`, role="button") + 
+            span= product.quantite
+            a(href=`/products/quantity-minus/${product.id}`, role="button")  - 
+          td= product.priceEuros
+          td.active-icon
+            a(href=`/products/toggle-active/${product.id}`)
+              if product.enVente
+                i.fas.fa-circle(title="Actif")
+              else
+                i.far.fa-circle(title="Non Actif")
+
+          td.actions.text-right
+            a(href=`/products/update/${product.id}`, title="Modifier")
+              i.fas.fa-pencil-alt
+
+            a(href=`/products/delete/${product.id}`, title="Supprimer")
+              i.fas.fa-trash
+            
