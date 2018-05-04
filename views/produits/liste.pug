@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+    h1="Page Produits"
+
+    table.table.table-dark
+        thead
+            tr
+                th= "Id"
+                th= "Ref"
+                th= "Titre"
+                th= "Note"
+                th= "Quantité"
+                th= "Image"
+                th= "Descriptif"
+                th= "Etat"
+                th= "Action"
+                
+        tbody
+        each produit in produits
+            tr
+                td
+                    a(class='btn btn-success btn-sm' href=`/produits/description/${produit.id}`)=produit.id
+
+                td
+                    a(class='btn btn-success btn-sm' href=`/produits/description/${produit.id}`)=produit.reference
+
+                td
+                    a(class='btn btn-success btn-sm' href=`/produits/description/${produit.id}`)=produit.titre
+                td=produit.note
+                td
+                    a(class='btn btn-success btn-sm' href=`/produits/augmenteQ/${produit.id}`) +
+                    a(class='btn btn-success btn-sm' href=`/produits/diminueQ/${produit.id}`) -
+                    p=produit.quantite
+                td
+                    img(src=produit.image)
+                if(produit.enVente === 1)
+                    td=produit.descriptif
+                td
+                    a(class='btn btn-success btn-sm' href=`/produits/modifierEtat/${produit.id}`)
+                        if produit.enVente
+                            | rendre Indisponible
+                        else
+                            | rendre Diponible
+                td
+                    a(class='btn btn-danger btn-sm' href=`/produits/supprimer/${produit.id}`) Supprimer
+
+    a.btn.btn-success(href="/produits/creer") Créer une nouvel article
+    
+
+                

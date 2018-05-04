@@ -1,0 +1,30 @@
+extends ../layout 
+
+block content
+    h3="Créer une nouvel article"
+    .col-6
+        form(method='POST', action='/produits/enregistrer')
+            //- input(class="form-control", required="required", name="id", placeholder="Id")
+            input(class="form-control", required="required", name="reference", placeholder="Ref")
+            input(class="form-control", required="required", name="titre", placeholder="Titre")
+            .form-group
+                select.col-4.custom-select(name="note")
+                    option(selected='') Noter ce produit
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3 
+                    option(value='4') 4
+                    option(value='5') 5/5
+            input(class="form-control", required="required", name="quantite", placeholder="Quantité")
+            input(class="form-control", required="required", name="image", placeholder="Url de l'image")
+            textarea(class="form-control", name="descriptif", required, placeholder="Description")
+            input(class="form-control", required="required", name="prix", placeholder="Prix")
+            input(class="form-control", required="required", name="tva", placeholder="Tva")
+            
+            .form-check
+                input#exampleRadios1.form-check-input(type='radio', name='enVente', value='0', checked='')
+                label.form-check-label(for='exampleRadios1') inactif
+            .form-check
+                input#exampleRadios2.form-check-input(type='radio', name='enVente', value='1')
+                label.form-check-label(for='exampleRadios2') en Vente
+            button(type="submit", class="btn btn-outline-dark") Enregistrer mon nouvel article

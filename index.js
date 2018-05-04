@@ -91,8 +91,10 @@ app.use((req, res, next) => {
  */
 
 const pages = require("./routes/pages");
+const produits = require('./routes/produits')
 
 app.get("/", (req, res) => res.render("index"));
+app.use('/produits', produits);
 app.use("/", pages);
 
 /**
