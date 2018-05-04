@@ -90,10 +90,10 @@ app.use((req, res, next) => {
  * Routing
  */
 
-const pages = require("./routes/pages");
+const catalogue = require("./routes/catalogue");
 
 app.get("/", (req, res) => res.render("index"));
-app.use("/", pages);
+app.use("/", catalogue);
 
 /**
  * 404 Page
