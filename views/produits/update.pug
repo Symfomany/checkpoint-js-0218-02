@@ -1,3 +1,33 @@
 extends ../layout
 
 block content
+    h2 Modification d'un produit:
+    form.form-group(method="POST", action=`/produits/updating/${produit.id}`, enctype="multipart/form-data")
+        .form-group
+            label(for='reference') Ref
+            input#reference.form-control(type='text', value=`${produit.reference}` name='reference')
+        .form-group
+            label(for='titre') Titre
+            input#titre.form-control(type='text', value=`${produit.titre}` name="titre")
+        .form-group
+            label(for='note') Note : 
+                select(id='liste' name='note')
+                    option( value = "1") 1
+                    option( value = "2") 2
+                    option( value = "3") 3
+                    option( value = "4") 4
+                    option( value = "4") 5
+        .form-group
+            label(for='descriptif') Descriptif
+            textarea#descriptif.form-control(type='text' name="descriptif")=`${produit.descriptif}`
+        .form-group
+            label(for='prix') Prix
+            input#prix.form-control(type='text', value=`${produit.prix}` name='prix')
+        .form-group
+            label(for='tva') TVA
+            input#tva.form-control(type='text', value=`${produit.tva}` name='TVA')
+        .form-check
+                input(class="form-check-input" id="hide" type='checkbox', name='enVente', value= "1")
+                label(class="form-check-label" for="hide") En Vente
+        button(type="submit", class="btn btn-success") Modifier le produit
+    

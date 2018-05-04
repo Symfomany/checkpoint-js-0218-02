@@ -1,4 +1,26 @@
 extends ../layout
 
 block content
-    p JE SUIS LA LISTE DES PRODUITS
+    a.btn.btn-success(href=`/produits/create`) Créer un nouveau produit
+    p LISTE DES PRODUITS:
+        table.table.table-hover.text-center
+            thead.thead-dark
+                tr
+                th(scope='col') #
+                th(scope='col') Ref
+                th(scope='col') Titre
+                th(scope='col') Note
+                th(scope='col') Image
+                
+            tbody
+                each produit in produits
+                    tr
+                    th(scope='row')
+                        a(href=`/produits/read/${produit.id}`)=`${produit.id}`
+                    td
+                        a(href=`/produits/read/${produit.id}`)=`${produit.reference}`
+                    td
+                        a(href=`/produits/read/${produit.id}`)=`${produit.titre}`
+                    td=`${produit.note}`
+                    td 
+                        img.imgtable(src=`${produit.image}` alt=`${produit.titre}`)
