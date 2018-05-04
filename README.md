@@ -43,7 +43,7 @@ Dans le souhait de pouvoir gérer des produits e-commerce, nous allons construir
 * tva (nombre décimal)
 * enVente (booléen)
 * createdAt
-* updatedAt
+* updatedAt 
 
 
 Voici les fonctionnalités attendues:

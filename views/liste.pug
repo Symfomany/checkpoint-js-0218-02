@@ -1,0 +1,54 @@
+extends ./layout
+
+block content
+    h1 Voici nos products
+    table.table
+        thead
+            tr
+            th(scope='col') titre
+            th(scope='col') descritpion
+            th(scope='col') prix
+            th(scope='col') quantité
+
+            tbody
+                each product in products
+                    if(product.enVente === false)
+                        tr.row
+                            td.col-lg-3.col-md-3.col-sm-2=product.title
+                            td=product.description
+                            td=`${product.price} €`
+                            td=product.quantity
+                        tr
+                            td.row
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-danger(href=`/desactiver/${product.id}`) Désactiver le produit
+                                .col-lg-3.col-md-3.col-sm-2
+                                    a.btn.btn-warning(href=`/modifier/${product.id}`) Modifier le produit
+                                .col-lg-3.col-md-3.col-sm-2
+                                    a.btn.btn-warning(href=`/supprimer/${product.id}`) Supprimer le produit
+                                .col-lg-3.col-md-3.col-sm-2
+                                    a.btn.btn-warning(href=`/voir/${product.id}`) Voir le produit
+                each product in products
+                    if(product.enVente === true)
+                        tr.row
+                            td.col-lg-3.col-md-3.col-sm-2=product.title
+                            td=product.description
+                            td=`${product.price} €`
+                            td=product.quantity
+                        tr    
+                            td.row
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn(href=`/voir/${product.id}`) Voir le produit
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-danger(href=`/activer/${product.id}`) Activer le produit
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-warning(href=`/modifier/${product.id}`) Modifier le produit
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-warning(href=`/supprimer/${product.id}`) Supprimer le produit
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-warning(href=`/voir/${product.id}`) Voir le produit
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-warning(href=`/augmenterquantite/${product.id}`) Augmenter la quantité
+                                .col-lg-2.col-md-2.col-sm-2
+                                    a.btn.btn-warning(href=`/diminuerquantite/${product.id}`) Diminuer la quantité
+    a.btn.btn-primary(href="/newproduct") Créer un nouveau produit
