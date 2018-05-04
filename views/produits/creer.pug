@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    h1="Créez un nouveau produit"
+    form(method="POST", action="/articles/enregistrer", enctype="multipart/form-data")
+        .form-group
+            input.form-control(type='text', name='titre', placeholder='Titre du produit', required)
+        .form-group
+            input.form-control(type='text', name='reference', placeholder='Référence', required)
+            small#emailHelp.form-text.text-muted Sous forme : AA-XXXX-BB.
+        .form-group
+            textarea.form-control(name="descriptif", placeholder="Description du produit", rows='10', required)
+        .form-group
+            input.form-control(type='text', name='prix', placeholder='Prix du produit', required)
+        .form-group
+            input.form-control(type='text', name='tva', placeholder='TVA du produit', required)
+        .form-group
+            label(for='exampleFormControlSelect1').form-text.text-muted Quantité
+            select#exampleFormControlSelect1.form-control
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+                option 6
+                option 7
+                option 8
+                option 9
+                option 10
+        .form-group
+            label(for='exampleFormControlSelect1').form-text.text-muted Note
+            select#exampleFormControlSelect1.form-control
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+        .form-group
+            input.form-control-file(type='file', name='image')
+        .form-check.form-check-inline
+            input.form-check-input(type='radio', name='enVente', value='true')
+            label.form-check-label(for='inlineRadio1') En vente
+        .form-check.form-check-inline
+            input#inlineRadio2.form-check-input(type='radio', name='inlineRadioOptions', value='option2')
+            label.form-check-label(for='inlineRadio2') Pas en vente
+
+    button.btn.btn-primary(type='submit') Créer
