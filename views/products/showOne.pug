@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    .card
+        img.card-img-top(src=`${product.image}`, alt='Image produit')
+        .card-body
+            h5.card-title Titre: #{product.title}
+            p.card-text Descriptif:  #{product.descriptif}
+            p.card-text Note: #{product.note}
+            p.card-text Quantite: #{product.quantite}
+            p.card-text Prix: #{product.prix}
+            p.card-text TVA: #{product.tva}
+            p.card-text enVente : #{product.enVente}
+            p.card-text Reference: #{product.reference}

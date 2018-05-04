@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+    a.btn.btn-primary.btn-lg.btn-block(href=`/catalogue/create`) Creer un produit
+    table.table.table-striped.table-dark
+        thead
+            tr
+                th(scope='col') id
+                th(scope='col') reference
+                th(scope='col') titre
+                th(scope='col') note
+                th(scope='col') quantite
+                th(scope='col') image
+                th(scope='col') descriptif
+                th(scope='col') prix
+                th(scope='col') tva
+                th(scope='col') enVente
+                th(scope='col') Actions
+        tbody
+            each product in products
+              tr
+                th(scope='row')
+                  a.btn.btn-outline-light(href=`/catalogue/product/${product.id}`)=product.id
+                td= product.titre
+                td
+                  a.btn.btn-outline-light(href=`/catalogue/product/${product.id}`)=product.reference
+                td= product.note
+                td= product.quantite
+                td
+                  img(src=product.image, alt=product.title)
+                td= product.descriptif
+                td
+                  a.btn.btn-outline-light(href=`/catalogue/product/${product.id}`)=product.prix
+                td= product.tva
+                td
+                  a.btn.btn-outline-light(href=`/catalogue/actif/${product.id}`)
+                    if(product.enVente)
+                      i.fas.fa-check
+                    else
+                      i.fas.fa-times
+                td
+                  a.btn.btn-outline-light(href=`/catalogue/delete/${product.id}`)
+                    i.far.fa-trash-alt

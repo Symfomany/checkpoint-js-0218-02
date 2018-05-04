@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4(role='main')
+      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
+        h1.text-uppercase Ajouter un produit
+      form(method="POST", action="/catalogue/create")
+        .form-group
+          label(for='name') Titre
+          input#name.form-control(name="titre", type='text', placeholder='titre', required)
+        .form-group
+          label(for='descriptif') Description
+          textarea#description.form-control(name="descriptif", type='text', placeholder='Votre descriptif', required)
+        .form-group
+          label(for='ht_price') Prix hors taxe
+          input.form-control(name="prix", type='text',placeholder='prix produit', required)
+        .form-group
+          label(for='quantite') Quantite
+          input.form-control(name="quantite", type='text',placeholder='quantite produit', required)
+        .form-group
+          label(for='tva') Taux de TVA
+          input.form-control(name="tva", type='text',  placeholder='tva' ,required)
+        .form-inline
+          label(for='enVente') Activé
+          input.form-control(name="enVente", type='radio', value="1")
+          label(for='enVente') désactivé
+          input.form-control(name="enVente", type='radio', value="0")
+        .form-group
+          label(for='note') Note
+          select.form-control(name="note")
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+        .form-group
+          label(for='reference') Reference
+          input.form-control(name="reference", type='text',  placeholder='reference produit' ,required)
+          small#nameHelp.form-text Must test AA-1111-AA
+        .form-group
+          input.form-control(name="image", type='text',  placeholder='Lien image source' ,required)
+        button.btn.btn-outline-dark Ajouter un produit
