@@ -23,6 +23,21 @@ class ProduitsController {
   creer(req, res) {
     res.render("produits/creer");
   }
+
+  enregistrer(req, res) {
+    const monFichier = req.files.image;
+    const datas = req.body;
+    console.log(req.files.image);
+    if (req.body.enVente === undefined) {
+      req.body.enVente = 0;
+    }
+    if (req.files.image !== undefined) {
+      monFichier.mv(`public/uploads/${monFichier.name}`, () => {
+        datas.image = monFichier.name;
+        db.Produits.create(datas).then(() => res.redirect("/produits/"));
+      });
+    }
+  }
 }
 
 module.exports = ProduitsController;

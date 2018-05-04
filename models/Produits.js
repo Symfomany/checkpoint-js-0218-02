@@ -25,13 +25,6 @@ const Produits = (sequelize, DataTypes) => {
         prixTTC() {
           return `${this.prix}€`;
         }
-        // check() {
-        //   if (this.enVente === true) {
-        //     return `i.fa.fa-check(aria-hidden='true')`;
-        //   } else {
-        //     return `i.fas.fa-times`;
-        //   }
-        // }
       }
     }
   );
