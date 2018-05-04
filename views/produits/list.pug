@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    a.btn.btn-success(href=`/produits/create`) Créer un nouveau produit
+    a.btn.btn-outline-secondary.float-right(href=`/produits/create`) Créer un nouveau produit
     p LISTE DES PRODUITS:
         table.table.table-hover.text-center
             thead.thead-dark
@@ -23,4 +23,4 @@ block content
                         a(href=`/produits/read/${produit.id}`)=`${produit.titre}`
                     td=`${produit.note}`
                     td 
-                        img.imgtable(src=`${produit.image}` alt=`${produit.titre}`)
+                        img.imgtable.img-fluid(src=`${produit.image}` alt=`${produit.titre}`)

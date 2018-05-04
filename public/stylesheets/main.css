@@ -6,3 +6,11 @@ div#content {
 .btn {
   margin: 0.5rem;
 }
+
+.card {
+  padding-top: 1rem;
+}
+
+.imgtable {
+  max-width: 20%;
+}

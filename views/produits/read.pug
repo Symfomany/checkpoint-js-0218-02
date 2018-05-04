@@ -3,13 +3,16 @@ extends ../layout
 block content
     h2=`FICHE DU PRODUIT ${produit.titre}`
     p=`REF: ${produit.reference}`
-        .card(style='width: 18rem;')
-            img.card-img-top(src=`${produit.image}` alt=`${produit.titre}`)
-            .card-body
-                h5.card-titlet=`${produit.titre}`
-                p.card-text=`Prix : ${produit.prix} Euros`
-                p.card-text=`Note Utilisateurs : ${produit.note}`
-                p.card-text=`Quantités en Stock : ${produit.quantite}`
-                p.card-text=`Description : ${produit.descriptif}`
-                a.btn.btn-primary(href=`/produits/update/${produit.id}`) Modifier
-                a.btn.btn-primary(href=`/produits/delete/${produit.id}`) Supprimer
+        .container
+            .row.justify-content-center
+                .col-auto
+                    .card(style='width: 18rem;')
+                        img.card-img-top(src=`${produit.image}` alt=`${produit.titre}`)
+                        .card-body.text-align-center
+                            h5.card-title=`${produit.titre}`
+                            p.card-text=`Prix : ${produit.prix} Euros`
+                            p.card-text=`Note Utilisateurs : ${produit.note}`
+                            p.card-text=`Quantités en Stock : ${produit.quantite}`
+                            p.card-text=`Description : ${produit.descriptif}`
+                            a.btn.btn-primary(href=`/produits/update/${produit.id}`) Modifier
+                            a.btn.btn-primary(href=`/produits/delete/${produit.id}`) Supprimer
