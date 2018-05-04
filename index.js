@@ -95,7 +95,7 @@ const produits = require("./routes/produits");
 
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
-app.use("/", produits);
+app.use("/produits", produits);
 
 /**
  * 404 Page
