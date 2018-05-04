@@ -14,7 +14,7 @@ class CataloguesController {
 
   voir(req, res) {
     //je recupere tous les articles
-    db.catalogue.findAll().then(articles => {
+    db.Catalogues.findAll().then(articles => {
       res.render("catalogues/voir", {
         articles
       });

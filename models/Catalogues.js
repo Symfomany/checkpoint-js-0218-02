@@ -4,17 +4,17 @@ const Catalogues = (sequelize, DataTypes) => {
     {
       // fields // name of Model
       id: { type: DataTypes.INTEGER, primaryKey: true },
-      reference: { type: DataTypes.STRING, notEmpty: true },
+      reference: { type: DataTypes.STRING, is: ["^[A]{2}-w{4}-[B]{2}$"] },
       titre: { type: DataTypes.STRING },
       note: { type: DataTypes.INTEGER },
-      quantité: { type: DataTypes.INTEGER },
+      quantite: { type: DataTypes.INTEGER },
       image: { type: DataTypes.STRING },
-      descriptif: { type: DataTypes.TEXT, is: ["^[a-z]{10,}$", "i"] },
+      descriptif: { type: DataTypes.TEXT },
       prix: { type: DataTypes.INTEGER },
       tva: { type: DataTypes.INTEGER },
       enVente: { type: DataTypes.BOOLEAN },
-      createAt: { type: DataTypes.DATE, isDate: true },
-      updateAt: { type: DataTypes.DATE, isDate: true }
+      createdAt: { type: DataTypes.DATE, isDate: true },
+      updatedAt: { type: DataTypes.DATE, isDate: true }
     },
     { timestamps: false, tableName: "catalogue" }
   );
