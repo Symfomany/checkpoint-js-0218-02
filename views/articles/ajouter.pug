@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    
+    h3.color="Ajouter un nouveau produit"
+        
+        form(method="POST", action="/articles/enr", enctype="multipart/form-data")
+            input(class="form-control", required="required", pattern=".{4,}", name="titre", placeholder="le Titre:")
+            input(class="form-control", required="required", pattern=".{6,}", name="reference", placeholder="Références produit:")
+            textarea(class="form-control", name="description", required, placeholder="la description")
+            input(class="form-control", required="required", pattern=".{4,}", name="prix", placeholder="Prix")
+            input(class="imagestel", type="file", name="photo", accept=".png, .jpg, .jpeg", capture="capture")
+            select(name='titre')
+                option(value='Notes', selected='selected') Notes:
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
+            
+        input(type="radio" id="radioButton" name="enVente" label="Disponible en vente")
+        <label for="radioButton"> Disponible à la vente</label>
+    button(type="submit" class="btn btn-success") OK

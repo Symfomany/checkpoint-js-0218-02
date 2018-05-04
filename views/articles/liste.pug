@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    h3="Liste des articles du catalogue"
+            
+
+    table.table
+        each article in articles
+            tr
+                td=article.id
+                td=article.titre
+                td=article.reference
+                td=article.prix
+                    img.photo(src=`/uploads/${article.photo}`)
+                td=article.description
+                        a.btn.btn(href=`/articles/voir/${article.id}`) Voir le produit
+                        a.btn.btn(href=`/articles/ajouter/${article.id}`) Ajouter 
+                        a.btn.btn(href=`/articles/supp/${article.id}`) Supprimer  

@@ -85,15 +85,30 @@ app.use((req, res, next) => {
 /**
  * Middleware
  */
+app.use("/articles/liste", (req, res, next) => {
+  next();
+});
 
+app.use("/articles/voir/:id", (req, res, next) => {
+  const id = req.params.id;
+  if (isNaN(id)) {
+    return res.redirect("/articles/liste");
+  } else {
+    next();
+  }
+  console.log("Liste des articles du catalogue");
+  next();
+});
 /**
  * Routing
  */
-
 const pages = require("./routes/pages");
+const articles = require("./routes/articles");
 
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
+
+app.use("/articles", articles);
 
 /**
  * 404 Page

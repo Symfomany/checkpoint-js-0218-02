@@ -8,6 +8,9 @@ const PagesController = require("../controllers/PagesController");
 const controller = new PagesController();
 
 router.get("/about", (req, res) => controller.about(req, res));
+router.get("/articles", (req, res) => controller.articles(req, res));
+router.get("/article", (req, res) => controller.article(req, res));
+router.get("/liste", (req, res) => controller.liste(req, res));
 
 /**
  * Middleware vérifier si je suis connecté

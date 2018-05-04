@@ -1,7 +1,4 @@
 const db = require(`../models/index.js`);
-/**
- * Class Pages Controller
- */
 class PagesController {
   /**
    * Page about
@@ -10,6 +7,14 @@ class PagesController {
    */
   about(req, res) {
     res.render("pages/about");
+  }
+
+  articles(req, res) {
+    db.Articles.findAll().then(articles => {
+      res.render("pages/articles", {
+        articles
+      });
+    });
   }
 }
 

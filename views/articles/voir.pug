@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+
+    h3=article.titre
+        ul
+            li=article.titre
+            li=article.reference
+            li=article.description
+            li=article.prix
+        img(src=`/uploads/${article.photo}`)
