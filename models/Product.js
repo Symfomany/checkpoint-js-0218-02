@@ -8,15 +8,14 @@ const Produits = (sequelize, DataTypes) => {
                 autoIncrement: true,
             },
             reference: {
-                type: DataTypes.STRING(100),
+                type: DataTypes.STRING,
                 allowNull: false,
                 notEmpty: true,
                 validate: {
-                    is: /^[A- Z]{2}-[\d]{4}-[A-Z]{2}$/, 
                     len: {
                         args: [2,100],
                         msg: "Reference must be betwenn 2 and 100 characters in length"
-                    }
+                    },
                 }
             },
             titre: {
@@ -81,7 +80,8 @@ const Produits = (sequelize, DataTypes) => {
             }
         },
         {
-            tableName: "produits"
+            tableName: "produits",
+            timestamps:false
         }
     );
 

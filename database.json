@@ -1,10 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "blog",
-    "port": 8889,
-    "host": "127.0.0.1",
+    "username": "dev2502_wild",
+    "password": "wildcodeschool",
+    "database": "dev2502_catalogue",
+    "host": "109.234.165.57",
     "dialect": "mysql",
     "logging": false
   }
