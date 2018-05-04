@@ -11,5 +11,6 @@ router.get("/voir", (req, res) => controller.voir(req, res));
 router.get("/article/:id", (req, res) => controller.detailler(req, res));
 router.get("/creer", (req, res) => controller.creer(req, res));
 router.post("/enregistrer", (req, res) => controller.enregistrer(req, res));
+router.get("/supprimer/:id", (req, res) => controller.supprimer(req, res));
 
 module.exports = router;

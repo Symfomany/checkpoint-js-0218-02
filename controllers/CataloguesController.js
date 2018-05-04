@@ -28,15 +28,14 @@ class CataloguesController {
   }
 
   creer(req, res) {
-    res.render("catalogues/creer"), { articles };
+    res.render("catalogues/creer");
   }
 
   enregistrer(req, res) {
     if (req.body.enVente == undefined) {
       req.body.enVente = "0";
     }
-
-    // console.log(req.body);
+    
     db.Catalogues.create(datasCatalogues).then(produit => {
       res.redirect("catalogues/voir");
     });
@@ -45,7 +44,7 @@ class CataloguesController {
   supprimer(req, res) {
     db.Catalogues.findById(req.params.id).then(article => {
       article.destroy();
-      res.redirect("/categories/liste");
+      res.redirect("/catalogues/voir");
     });
   }
 }
