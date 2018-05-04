@@ -20,5 +20,27 @@ class CataloguesController {
       });
     });
   }
+
+  detailler(req, res) {
+    db.Catalogues.findById(req.params.id).then(produit => {
+      res.render("catalogues/detailler", { produit });
+    });
+  }
+
+  creer(req, res) {
+    res.render("catalogues/creer"), { articles };
+  }
+
+  enregistrer(req, res) {
+    if (req.body.enVente == undefined) {
+      req.body.enVente = "0";
+    }
+
+    // console.log(req.body);
+        db.Categories.create(datasCatalogues).then(produit => {
+          
+          res.redirect("catalogues/voir");
+        });
+  }
 }
 module.exports = CataloguesController;

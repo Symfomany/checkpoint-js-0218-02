@@ -18,9 +18,21 @@ block content
         tbody
            each element in articles
             tr
-                th=element.id
-                td=element.reference
-                td=element.titre
+                th 
+                    a(href=`/catalogues/article/${element.id}`)=element.id 
+                td
+                    a(href=`/catalogues/article/${element.id}`)=element.reference
+                td
+                    a(href=`/catalogues/article/${element.id}`)=element.titre
                 td=element.note
-                td=element.image 
+                td
+                    img(src="element.image" alt=element.titre)
+                td
+                    a(href=`/catalogues/supprimer/${element.id}`) Supprimer cet article
+    br  
+    hr
+    br
+    a(href=`/catalogues/creer`) Créer un nouvel article
+    
+
             
