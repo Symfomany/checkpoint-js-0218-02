@@ -95,6 +95,11 @@ const pages = require("./routes/pages");
 app.get("/", (req, res) => res.render("index"));
 app.use("/", pages);
 
+const pages = require("./routes/categorie");
+
+app.get("/", (req, res) => res.render("index"));
+app.use("/", categorie);
+
 /**
  * 404 Page
  */
