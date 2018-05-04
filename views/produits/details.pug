@@ -50,4 +50,7 @@ block content
                 |   
     .row
         .col-12.text-center
-            a(href="/produits/") Retour à la liste des produits
+            a.btn.btn-primary(href="/produits/") Retour à la liste des produits
+    .row
+        .col-12.text-center
+            a.btn.btn-danger(href=`/produits/supprimer${produit.id}`) Supprimer produit

@@ -27,7 +27,6 @@ class ProduitsController {
   enregistrer(req, res) {
     const monFichier = req.files.image;
     const datas = req.body;
-    console.log(req.files.image);
     if (req.body.enVente === undefined) {
       req.body.enVente = 0;
     }
@@ -36,7 +35,17 @@ class ProduitsController {
         datas.image = monFichier.name;
         db.Produits.create(datas).then(() => res.redirect("/produits/"));
       });
+    } else {
+      db.Produits.create(datas).then(() => res.redirect("/produits/"));
     }
+  }
+
+  supprimer(req, res) {
+    db.Produits.findById(req.params.id).then(produit => {
+      produit.destroy().then(() => {
+        res.redirect("/produits/");
+      });
+    });
   }
 }
 

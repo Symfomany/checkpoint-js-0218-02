@@ -14,6 +14,8 @@ block content
                 th(scope='col') Note
                 |
                 th(scope='col') Image
+                |
+                th(scope='col') Supprimer
         tbody.text-center
             each produit in produits
                 tr
@@ -31,6 +33,8 @@ block content
                     td(style='vertical-align: middle;')
                         img(src=`${produit.image}` alt=`${produit.titre}` height="100px")
                     |  
+                    td(style='vertical-align: middle;')
+                        a.btn.btn-danger(href=`/produits/supprimer${produit.id}`) Supprimer produit
 
     .row
         .col-12.text-center
