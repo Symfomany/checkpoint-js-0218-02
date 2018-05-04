@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+    h1 "Coucou, tu veux acheter ?"
+    ul
+    each produit in produits
+        li `${produit.id}, ${produit.titre}`
