@@ -17,11 +17,14 @@ block content
         tbody.text-center
             each produit in produits
                 tr
-                    th(style='vertical-align: middle;' scope='row')=`${produit.id}`
+                    th(style='vertical-align: middle;' scope='row')
+                        a(href=`/produits/details${produit.id}`)=`${produit.id}`
                     |       
-                    td(style='vertical-align: middle;')=`${produit.reference}`
+                    td(style='vertical-align: middle;')
+                        a(href=`/produits/details${produit.id}`)=`${produit.reference}`
                     |     
-                    td(style='vertical-align: middle;')=`${produit.titre}`
+                    td(style='vertical-align: middle;')
+                        a(href=`/produits/details${produit.id}`)=`${produit.titre}`
                     |     
                     td(style='vertical-align: middle;')=`${produit.notation}`
                     |         
