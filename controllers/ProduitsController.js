@@ -33,11 +33,17 @@ class ProduitsController {
     if (req.files.image !== undefined) {
       monFichier.mv(`public/uploads/${monFichier.name}`, () => {
         datas.image = monFichier.name;
-        db.Produits.create(datas).then(() => res.redirect("/produits/"));
+        db.Produits.create(datas).then(() => {
+          req.flash("info", `Le produit a bien été créer`);
+          res.redirect("/produits/");
+        });
       });
     } else {
       datas.image = `https://media.giphy.com/media/13XfETre3zugg0/giphy.gif`;
-      db.Produits.create(datas).then(() => res.redirect("/produits/"));
+      db.Produits.create(datas).then(() => {
+        req.flash("info", `Le produit a bien été créer`);
+        res.redirect("/produits/");
+      });
     }
   }
 
