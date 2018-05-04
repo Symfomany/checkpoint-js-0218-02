@@ -8,6 +8,9 @@ const PagesController = require("../controllers/PagesController");
 const controller = new PagesController();
 
 router.get("/about", (req, res) => controller.about(req, res));
+router.get("/voir/:id", (req, res) => controller.voir(req, res));
+router.get("/creer", (req, res) => controller.creer(req, res));
+router.get("/supprimer/:id", (req, res) => controller.supprimer(req, res));
 
 /**
  * Middleware vérifier si je suis connecté

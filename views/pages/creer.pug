@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    h3 Creer un produit
+    form(method='POST' action="/pages/enregistrer",enctype="multipart/form-data") 
+        input(class="form-control", required='required', pattern=`.{3,}`, name="title", placeholder=`Nom du produit`)
+        textarea(class="form-control", name="description", required, placeholder=`La description du produit`)
+        input(type="file", name="photo" accept="images/*",capture="capture")
+        button(type='submit' class="btn btn-success") Enregistrer mon nouveau produit
