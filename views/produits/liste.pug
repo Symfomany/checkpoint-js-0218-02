@@ -1,0 +1,31 @@
+extends ../layout
+
+block content    
+    table.table.table-striped.table-dark
+        tr
+            th.text-primary= "ID"
+            th.text-primary= "Reférence"
+            th.text-primary= "Titre"
+            th.text-primary= "Note"
+            th.text-primary="Image"
+            th.text-primary="Supprimer le produit"
+
+        each produit in produits
+            tr    
+                    td
+                        a(href=`/produits/voir/${produit.id}`)
+                            p=produit.id
+                    td 
+                        a(href=`/produits/voir/${produit.id}`)
+                            p=produit.reference
+                    td
+                        a(href=`/produits/voir/${produit.id}`)
+                            p=produit.titre
+                    td= produit.note
+                    td
+                        img.tailleImg(src=`/upload/${produit.image}`)
+                    td
+                        a.btn.btn-danger(href=`/produits/supprimer/${produit.id}`) Supprimer
+                    
+                    
+    a.btn.btn-primary(href="/produits/creer") Creer un produit

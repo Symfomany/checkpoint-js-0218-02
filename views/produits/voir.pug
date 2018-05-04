@@ -1,0 +1,27 @@
+extends ../layout
+block content
+    h3=produits.titre
+    table.table-striped
+        tr
+            th.text-danger
+                p="ID"
+                i.fas.fa-desktop
+            th.text-danger
+                p="Reférence"
+                i.fas.fa-sitemap
+
+            th.text-danger
+                p="Note"
+                i.far.fa-sticky-note
+            th.text-danger= "Quantité disponible"
+            th.text-danger="Image"
+            th.text-danger="TVA"
+        tr
+            td=produits.id
+            td=produits.reference
+            td=produits.note
+            td=produits.quantite
+            td=produits.image
+            td=`${produits.tva} %`
+                
+    

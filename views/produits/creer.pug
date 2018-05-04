@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h3="Nouveau produit"
+    form(method="POST", action="/produits/enregistrer",enctype="multipart/form-data")
+        input(class="form-control", required="required",pattern=".{3,}",name="titre",placeholder="Le Titre")
+        input(class="form-control", required="required",pattern=".{6,}",name="reference",placeholder="La réference")
+        input(class="form-control", required="required",name="quantite",placeholder="La quantité")
+        input(class="form-control", required="required",name="prix",placeholder="Le prix")
+        input(class="form-control", required="required",name="tva",placeholder="TVA")     
+        textarea(class="form-control", name="descriptif",required, placeholder="La description")
+        input(type="file",name="image", class="btn btn-primary", accept="image/*", capture="capture")
+        .noMarginLeft.alert.alert-light.row.justify-content-md-center="Cochez pour si ce produit est disponible à la vente" 
+            .input-group.mb-3
+            .input-group-prepend
+                .input-group-text
+                    input(type="radio", name="enVente",value="1",required="required") 
+                    .aria-label Disponible
+                    input(type="radio", name="enVente",value="0",required="required")
+                    .aria-label Non Disponible
+        .input-group.mb-3
+        .input-group-prepend
+            label.input-group-text Note du produit
+            select.custom-select(name="note")
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3',selected) 3
+                option(value='4') 4
+                option(value='4') 5
+        .row.justify-content-md-center.mt-3            
+            button(type="submit",class="btn btn-success") Valider
+
