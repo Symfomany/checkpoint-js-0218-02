@@ -1,7 +1,51 @@
 extends ../layout
 
 block content
-    h1 "Coucou, tu veux acheter ?"
-    ul
-    each produit in produits
-        li `${produit.id}, ${produit.titre}`
+    h1.text-center Liste de nos produits
+    table.table
+        thead.text-center
+            tr
+                th(scope='col') #
+                |       
+                th(scope='col') Reference
+                |  
+                th(scope='col') Titre
+                |
+                th(scope='col') Note
+                |
+                th(scope='col') Quantité
+                |
+                th(scope='col') Image
+                |
+                th(scope='col') Descriptif
+                | 
+                th(scope='col') Prix TTC
+                |
+                th(scope='col') TVA
+                |
+                th(scope='col') enVente
+                |
+        tbody.text-center
+            each produit in produits
+                tr
+                    th(scope='row')=`${produit.id}`
+                    |       
+                    td=`${produit.reference}`
+                    |     
+                    td=`${produit.titre}`
+                    |     
+                    td=`${produit.notation}`
+                    |     
+                    td=`${produit.quantité}`
+                    |     
+                    td
+                        img(src=`${produit.image}` alt=`${produit.titre}` height="100px")
+                    |  
+                    td=`${produit.descriptif}`
+                    |
+                    td=`${produit.prixTTC}`
+                    |
+                    td=`${produit.tva}`
+                    |
+                    td=`${produit.enVente}`
+                    |   

@@ -15,7 +15,25 @@ const Produits = (sequelize, DataTypes) => {
       createdAt: { type: DataTypes.DATE, isDate: true },
       updatedAt: { type: DataTypes.DATE, isDate: true }
     },
-    { tableName: "produits", timestamps: false }
+    {
+      tableName: "produits",
+      timestamps: false,
+      getterMethods: {
+        notation() {
+          return `${this.note}/5`;
+        },
+        prixTTC() {
+          return `${this.prix}€`;
+        }
+        // check() {
+        //   if (this.enVente === true) {
+        //     return `i.fa.fa-check(aria-hidden='true')`;
+        //   } else {
+        //     return `i.fas.fa-times`;
+        //   }
+        // }
+      }
+    }
   );
 
   return Produits;

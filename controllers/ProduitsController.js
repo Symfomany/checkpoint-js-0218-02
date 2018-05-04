@@ -13,6 +13,12 @@ class ProduitsController {
       res.render("produits/liste", { produits });
     });
   }
+
+  details(req, res) {
+    db.Produits.findById(req.params.id).then(produit => {
+      res.render("produits/details", { produit });
+    });
+  }
 }
 
 module.exports = ProduitsController;
