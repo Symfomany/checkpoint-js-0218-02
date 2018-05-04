@@ -23,6 +23,7 @@ block content
         .form-group
             label(for='image') Images
             input#image.form-control(type='text', placeholder="ici l'URL de l'image" name="image")
+            input(class="form-control-file", type="file", name="image", accept="image/*", capture="capture")
         .form-group
             label(for='prix') Prix
             input#prix.form-control(type='text', placeholder="ici le prix" name='prix')

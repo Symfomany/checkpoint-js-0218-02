@@ -16,9 +16,28 @@ class ProduitsController {
   }
 
   save(req, res) {
-    const datas = req.body;
-    db.Produits.create(datas).then(produit => res.redirect("/produits/list"));
+    if (req.files.image !== undefined) {
+      console.log("je passe par le if");
+      const myFile = req.files.image;
+      //recuperer mes données en POST
+      myFile.mv(`public/uploads/${myFile.name}`, () => {
+        const datas = req.body;
+        datas.image = myFile.name;
+        db.Produits.create(datas).then(produit =>
+          res.redirect("/produits/list")
+        );
+      });
+    } else {
+      console.log("je passe par le else");
+      const datas = req.body;
+      db.Produits.create(datas).then(produit => res.redirect("/produits/list"));
+    }
   }
+
+  // save(req, res) {
+  //   const datas = req.body;
+  //   db.Produits.create(datas).then(produit => res.redirect("/produits/list"));
+  // }
 
   read(req, res) {
     db.Produits.findById(req.params.id).then(produit => {
