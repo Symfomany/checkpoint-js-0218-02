@@ -24,6 +24,14 @@ const Produits = (sequelize, DataTypes) => {
         },
         prixTTC() {
           return `${this.prix}€`;
+        },
+        imageLink() {
+          const regexImage = new RegExp("^(https?://){1}");
+          if (regexImage.test(this.image)) {
+            return `${this.image}`;
+          } else {
+            return `/uploads/${this.image}`;
+          }
         }
       }
     }

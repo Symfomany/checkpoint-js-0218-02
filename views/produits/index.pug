@@ -31,7 +31,7 @@ block content
                     td(style='vertical-align: middle;')=`${produit.notation}`
                     |         
                     td(style='vertical-align: middle;')
-                        img(src=`${produit.image}` alt=`${produit.titre}` height="100px")
+                        img(src=`${produit.imageLink}` alt=`${produit.titre}` height="100px")
                     |  
                     td(style='vertical-align: middle;')
                         a.btn.btn-danger(href=`/produits/supprimer${produit.id}`) Supprimer produit
