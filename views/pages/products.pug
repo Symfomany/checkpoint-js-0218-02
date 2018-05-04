@@ -14,11 +14,14 @@ block content
                 each product in products
                     tr
                         th(scope='row')
-                            =product.id
+                            a(href=`produit/${product.id}`)
+                                =product.id
                         td
-                            =product.reference
+                            a(href=`produit/${product.id}`)
+                                =product.reference
                         td
-                            =product.title
+                            a(href=`produit/${product.id}`)
+                                =product.title
                         td
                             =product.score
                         td

@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    main(role='main')
+        .row.mb-2
+            .col-md-8
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                    .card-body.d-flex.flex-column.align-items-start
+                        strong.d-inline-block.mb-2.text-primary
+                            =`NOTE : ${product.score}.`
+                        h3.mb-0
+                        a.text-dark(href='#')
+                            =product.title
+                        .mb-1.text-muted Nov 12
+                        p.card-text.mb-auto
+                            =product.description
+            .col-md-4
+                img.img-fluid(src=`${product.image}` alt='Card image cap')

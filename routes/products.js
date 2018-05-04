@@ -8,6 +8,7 @@ const ProductsController = require("../controllers/ProductsController");
 const controller = new ProductsController();
 
 router.get("/produits", (req, res) => controller.productsListing(req, res));
+router.get("/produit/:id", (req, res) => controller.viewProduct(req, res));
 
 // /**
 //  * Middleware vérifier si je suis connecté
