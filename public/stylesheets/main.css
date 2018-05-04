@@ -1,4 +1,58 @@
 div#content {
-    min-height: 600px;
-    padding-top: 10px;
+  min-height: 600px;
+  padding-top: 10px;
+}
+
+.actions i {
+  margin-left: 10px;
+}
+
+.actions a {
+  color: lightgray;
+}
+
+.actions a:hover {
+  color: black;
+}
+
+h1 {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+#infos {
+  margin-bottom: 30px;
+}
+
+#infos .col.text-right a {
+  margin-left: 10px;
+}
+
+img.img-fluid {
+  margin-bottom: 20px;
+}
+
+img.img-thumbnail {
+  max-width: 200px;
+}
+
+.active-icon {
+  color: transparent;
+}
+
+.active-icon i.fas {
+  color: green;
+}
+
+.active-icon i.far {
+  color: red;
+}
+
+i.fa-star {
+  color: gold;
+}
+
+form .form-group {
+  margin-bottom: 10px;
 }
