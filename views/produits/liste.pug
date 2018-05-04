@@ -2,4 +2,22 @@ extends ../layout
 
 block content
    h1 Liste des produits
-   
+   br
+   table.table
+        thead
+            tr
+                th(scope='col') ID
+                th(scope='col') REF
+                th(scope='col') TITRE
+                th(scope='col') NOTE
+                th(scope='col') IMAGE
+        tbody
+            each produit in produits
+               tr
+                  td=produit.id
+                  td=produit.reference
+                  td=produit.titre
+                  td=produit.note
+                  td=produit.image
+                  //td: a(class="badge badge-dark" href=`/produits/voir/${produit.id}`) Voir 
+                  //td: a(class="badge badge-danger" href=`/produits/supprimer/${produit.id}`) Supprimer
