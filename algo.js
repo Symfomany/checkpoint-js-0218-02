@@ -68,18 +68,13 @@ const produitTrois = {
   taxe: { tva: 20 }
 };
 
-console.log(produitTrois.titre);
-
-const titreArr = produits.map(elt => elt.titre);
-
-console.log(titreArr);
-
-const prixTTC = produits.map(elt => elt.prix + elt.prix * elt.taxe.tva / 100);
-
+const prixTTC = produits.map(elt => elt.prix * elt.taxe.tva / 100);
 console.log(prixTTC);
 
-// Parmis les produits de TVA à 20%,
-// extraire les 3 produits les plus chers afin d'en afficher leur prix TTC , c'est à dire avec TVA comprise.
+plusChers = prixTTC
+  .sort(function(a, b) {
+    return b - a;
+  })
+  .slice(0, 3);
 
-// Parmis tous les produits de TVA à 20%, calculer et ajouter le volume à chaque produit de la liste ,
-// le calcul se fera par Longeur(L) x largeur(l) x Hauteur. Puis calculer et afficher en console le volume total de tous les produits.
+console.log(plusChers);
