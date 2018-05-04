@@ -11,6 +11,13 @@ class PagesController {
   about(req, res) {
     res.render("pages/about");
   }
+  produits(req, res) {
+    db.Produits.findAll().then(produits => {
+      res.render("pages/produits", {
+        produits
+      });
+    });
+  }
 }
 
 module.exports = PagesController;
