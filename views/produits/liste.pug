@@ -13,39 +13,18 @@ block content
                 |
                 th(scope='col') Note
                 |
-                th(scope='col') Quantité
-                |
                 th(scope='col') Image
-                |
-                th(scope='col') Descriptif
-                | 
-                th(scope='col') Prix TTC
-                |
-                th(scope='col') TVA
-                |
-                th(scope='col') enVente
-                |
         tbody.text-center
             each produit in produits
                 tr
-                    th(scope='row')=`${produit.id}`
+                    th(style='vertical-align: middle;' scope='row')=`${produit.id}`
                     |       
-                    td=`${produit.reference}`
+                    td(style='vertical-align: middle;')=`${produit.reference}`
                     |     
-                    td=`${produit.titre}`
+                    td(style='vertical-align: middle;')=`${produit.titre}`
                     |     
-                    td=`${produit.notation}`
-                    |     
-                    td=`${produit.quantité}`
-                    |     
-                    td
+                    td(style='vertical-align: middle;')=`${produit.notation}`
+                    |         
+                    td(style='vertical-align: middle;')
                         img(src=`${produit.image}` alt=`${produit.titre}` height="100px")
                     |  
-                    td=`${produit.descriptif}`
-                    |
-                    td=`${produit.prixTTC}`
-                    |
-                    td=`${produit.tva}`
-                    |
-                    td=`${produit.enVente}`
-                    |   
