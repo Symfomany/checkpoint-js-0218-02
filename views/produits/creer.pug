@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     h1="Créez un nouveau produit"
-    form(method="POST", action="/articles/enregistrer", enctype="multipart/form-data")
+    form(method="POST", action="/produits/enregistrer", enctype="multipart/form-data")
         .form-group
             input.form-control(type='text', name='titre', placeholder='Titre du produit', required)
         .form-group
