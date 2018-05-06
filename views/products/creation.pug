@@ -4,33 +4,43 @@ block content
     .main.container
         .row
         h1.display-5 Entrer un nouveau produit
-        form(method='POST' action='/products/create')
-            div.form-group
+        form(method='POST' action='/products/createProduct')
+            .form-group
                 label(for='Reference') Reference :
                 input.form-control(type='text', textarea='Ref' name='Reference')
-            div.form-group
+            .form-group
                 label(for='Titre') Titre :
                 input.form-control(type='text',textarea='Titre' name='Titre')
-            div.form-group
+            .form-group
                 label(for='Note') Note :
-                input.form-control(type='number', textarea='Note', name='Note')
-            div.form-group
+            select#choosenote.form-control(name='Note')
+                option(value= '1') 1
+                option(value= '2') 2
+                option(value= '3') 3
+                option(value= '4') 4
+                option(value= '5') 5
+            .form-group
                 label(for='Quantite') Quantité :
                 input.form-control(type='number', textarea='Quantité', name='Quantite')
-            div.form-group
+            .form-group
                 label(for='Image') Image :
                 input.form-control(type='url', textarea='image.png', name='Image')
-            div.form-group
+            .form-group
                 label(for='Descriptif') Descriptif :
                 input.form-control(type='text', textarea='Descriptif',  name='Descriptif')
-            div.form-group
+            .form-group
                 label(for='Prix') Prix :
                 input.form-control(type='number', textarea='Prix', name='Prix')
-            div.form-group
+            .form-group
                 label(for='TVA') Taux de TVA :
-                input.form-control(type='number', textarea='TVA', name='TVA')
-                label(for='En_vente') Disponible :
-                input.form-control(type='radio', value='Oui', name='En_vente')
-                input.form-control(type='radio', value='Non', name='En_vente')
+                input.form-control(type='float', textarea='TVA', name='TVA')
+            .form-group
+                label(for='En_vente') Disponible à la vente 
+            .form-group
+                input(type="radio", name="En_vente", value="1")
+                | Disponible
+                input(type="radio", name="En_vente", value="0")
+                | Indisponible    
             button.btn.btn-primary(type='submit') Valider
+        
 

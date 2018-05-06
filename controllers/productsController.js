@@ -9,8 +9,7 @@ class productsController {
    * @param {*} res
    */
   showProducts(req, res) {
-    db.produits.findAll().then(results => {
-      console.log(res);
+    db.produits.findAll({ order: [["note", "DESC"]] }).then(results => {
       res.render("products/liste", { results: results });
     });
   }
@@ -25,9 +24,11 @@ class productsController {
   }
 
   createProduct(req, res) {
-    db.produits
-      .create(req.body)
-      .then(produit => res.redirect("/products/liste"));
+    console.log(req.body);
+    db.produits.create(req.body).then(prod => {
+      console.log(prod);
+      res.redirect("/products/liste");
+    });
   }
   suppress(req, res) {
     db.produits.findById(req.params.id).then(produit => {

@@ -18,6 +18,9 @@ const Produits = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false
       },
+      Note: {
+        type: DataTypes.INTEGER
+      },
 
       Image: {
         type: DataTypes.STRING

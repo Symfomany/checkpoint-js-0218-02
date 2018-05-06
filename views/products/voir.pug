@@ -1,16 +1,22 @@
 extends ../layout
 
 block content
-    h1=result.Id
-    p=result.Titre
-    p=result.Reference
-    p=result.Descriptif
+    .main.container
+        .row-center
+            .card.text-center.border-primary.mb-3
+                h1.card-title(style="color :blue;")= result.Titre
+                img.card-img-top.d-block.mx-auto(src=`${result.Image}`, alt='Card image',  style="width: 50%;")
+                .card-body
+                    h5.card-text=`ref : ${result.Reference}`
+                    h5 Description :
+                    p=result.Descriptif
+                    h5=`Quantité restante : ${result.Quantite}`
+                    h5=`Note : ${result.Note}`
+                    h5=`Taux de TVA : ${result.TVA}`
+                    h4=`Prix : ${result.Prix} €`
+                    if result.En_vente === 1
+                        h3.alert-success Produit disponible
+                    else
+                        h3.alert-danger Produit indisponible 
 
-    .card(style='width:400px')
-        img.card-img-top(src=`${result.Image}`, alt='Card image')
-        .card-body
-            h4.card-title=result.Titre
-            p.card-text=result.Reference
-                p=result.Descriptif
-            a.btn.btn-primary(href='#') 
     
