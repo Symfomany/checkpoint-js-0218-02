@@ -35,6 +35,9 @@ class CataloguesController {
     if (req.body.enVente == undefined) {
       req.body.enVente = "0";
     }
+    else {
+      req.body.enVente= "1"
+    }
     // res.json(req.body)
     let datasCatalogues = req.body;
     db.Catalogues.create(datasCatalogues).then(produit => {
