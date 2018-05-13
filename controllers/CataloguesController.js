@@ -14,7 +14,7 @@ class CataloguesController {
 
   voir(req, res) {
     //je recupere tous les articles
-    db.Catalogues.findAll().then(articles => {
+    db.Catalogues.findAll({ order :[["note", "DESC"]]}).then(articles => {
       res.render("catalogues/voir", {
         articles
       });
