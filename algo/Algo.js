@@ -78,17 +78,35 @@ const produits = [
   }
 ];
 
-const prixtva = produits.map(
-  element => element.prix + element.prix * element.taxe.tva / 100
-);
-const prixmax = Math.max(...prixtva);
-console.log(prixtva);
-console.log(prixmax);
+/*Parmis les produits de TVA à 20%, 
+  extraire les 3 produits les plus chers afin d'en afficher leur prix TTC , 
+  c'est à dire avec TVA comprise.*/
 
+const tvavingt = produits.filter(elements => elements.taxe.tva === 20);
+console.log(tvavingt);
+const prixtva = tvavingt
+  .sort((a, b) => b.prix - a.prix)
+  .slice(0, 3)
+  .map(element => element.prix + element.prix * element.taxe.tva / 100);
+console.log(prixtva);
+
+/*Parmis tous les produits de TVA à 20%, 
+   calculer et ajouter le volume à chaque produit de la liste ,
+  le calcul se fera par Longeur(L) x largeur(l) x Hauteur.
+  Puis calculer et afficher en console le volume total de tous les produits.*/
+const volumes = tvavingt.map(
+  element => element.dimension.L * element.dimension.H * element.dimension.l
+);
+console.log(volumes);
+
+// *Bonus: Si tu as le temps:, extraire la plus petite largeur et la plus grand longueur
+tab = [];
 const minl = produits.map(element => element.dimension.l);
 const minlargeur = Math.min(...minl);
-const maxL = produits.map(element => element.dimension.L);
-const maxlongeur = Math.max(...maxL);
-//console.log(minlargeur, maxlongueur);
 
-produits.forEach(element => element.taxe.tva === 20);
+const maxL = produits.map(element => element.dimension.L);
+const maxlongueur = Math.max(...maxL);
+
+tab.push(minlargeur, maxlongueur);
+
+console.log(tab);

@@ -37,6 +37,27 @@ class productsController {
       });
     });
   }
+  augmenter(req, res) {
+    db.produits.findById(req.params.id).then(result => {
+      result.Quantite += 1;
+      result.save();
+      res.redirect(`/products/voir/${req.params.id}`);
+    });
+  }
+  diminuer(req, res) {
+    db.produits.findById(req.params.id).then(result => {
+      result.Quantite -= 1;
+      result.save();
+      res.redirect(`/products/voir/${req.params.id}`);
+    });
+  }
+  activer(req, res) {
+    db.produits.findById(req.params.id).then(result => {
+      result.En_vente ^= 1;
+      result.save();
+      res.redirect("/products/voir/");
+    });
+  }
 }
 
 module.exports = productsController;

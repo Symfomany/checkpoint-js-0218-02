@@ -20,6 +20,8 @@
     "express-flash": "0.0.2",
     "express-form": "^0.12.6",
     "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
+    "fontawesome": "^4.7.2",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.3",
     "node-sass-middleware": "^0.11.0",

@@ -5,12 +5,14 @@ block content
         .row-center
             .card.text-center.border-primary.mb-3
                 h1.card-title(style="color :blue;")= result.Titre
-                img.card-img-top.d-block.mx-auto(src=`${result.Image}`, alt='Card image',  style="width: 50%;")
+                img.card-img-top.d-block.mx-auto(src=`${result.Image}`, alt='Card image',  style="width: 30%;")
                 .card-body
                     h5.card-text=`ref : ${result.Reference}`
                     h5 Description :
                     p=result.Descriptif
                     h5=`Quantité restante : ${result.Quantite}`
+                    a.btn.btn-success(href=`/products/augmente/${result.id}`) Augmenter
+                    a.btn.btn-danger(href=`/products/diminue/${result.id}`) Diminuer
                     h5=`Note : ${result.Note}`
                     h5=`Taux de TVA : ${result.TVA}`
                     h4=`Prix : ${result.Prix} €`
@@ -18,5 +20,6 @@ block content
                         h3.alert-success Produit disponible
                     else
                         h3.alert-danger Produit indisponible 
-
+                    a.btn.btn-primary.btn-lg(href=`products/active/${result.id}`) activer/désactiver
     
+                

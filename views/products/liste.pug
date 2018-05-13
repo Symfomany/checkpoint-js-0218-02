@@ -2,26 +2,33 @@ extends ../layout
 
 block content
     table.table
-        thead
+        thead.thead-light.text-center
             tr
                 th(scope='col') Id Produit
                 th(scope='col') Ref Produit
                 th(scope='col') Titre Produit
                 th(scope='col') Note du Produit
                 th(scope='col') Image
+                th(scope='col') Disponibilité
+                th(scope='col') Supprimer
         tbody
             each result in results
-                tr
-                    td
+                tr.text-center
+                    td(style="width: 10%")
                         a(href=`/products/voir/${result.Id}`)=result.Id
-                    td
+                    td(style="width: 20%")
                         a(href=`/products/voir/${result.Id}`)=result.Reference
-                    td
+                    td(style="width: 20%")
                         a(href=`/products/voir/${result.Id}`)=result.Titre
-                    td=result.Note
-                    td=result.Image
+                    td(style="width: 20%")=result.Note
+                    td(style="width: 20%")
+                        img(src=`${result.Image}`, alt="produit_image", width="40%")
+                    if result.En_vente === 1
+                        td Disponible
+                    else
+                        td.text-danger Indisponible
                     td
-                        a(href=`/products/suppress/${result.id}`) Supprimer l'article
+                        a.text-danger.i.fa.fa-close(href=`/products/suppress/${result.id}`) Supprimer l'article
     a.btn.btn-primary(href="/products/creation") Entrer un nouveau produit
     
 

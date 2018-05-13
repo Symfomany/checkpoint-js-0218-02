@@ -1,36 +1,30 @@
-
 # Checkpoint 2 - NodeJS & Express & MySQL
 
 ![enter image description here](https://cdn-images-1.medium.com/max/365/1*d2zLEjERsrs1Rzk_95QU9A.png)
 
-
 ## Pre-requis
 
- - Tu as besoin de créer base de donnée Mysql (Mamp pour les Mac)
+* Tu as besoin de créer base de donnée Mysql (Mamp pour les Mac)
 
-  - Une fois avoir cloner ce repository, *il y a deja une architecture MVC de Express-Base*, Tu commiteras régulièrement par actions que tu fais et pushes à la fin sur ta branche *NOM_PRENOM* (la master est verouillée)
+* Une fois avoir cloner ce repository, _il y a deja une architecture MVC de Express-Base_, Tu commiteras régulièrement par actions que tu fais et pushes à la fin sur ta branche _NOM_PRENOM_ (la master est verouillée)
 
- 
 ## Conseils
 
-- Es-tu dans le bon dossier?
-- Prends ton temps, il vaut mieux en faire moins mais mieux ;)
-- Développer et Deboguer avec rigueur en MVC: routing/controlers/models/vue
-- La console est ton vraie amie (pas le voisin) pour avancer pas à pas.
-- Tu oublieras pas d'installer les dépendances et de configurer la connexion à la base de données que tu vas créer.
-
+* Es-tu dans le bon dossier?
+* Prends ton temps, il vaut mieux en faire moins mais mieux ;)
+* Développer et Deboguer avec rigueur en MVC: routing/controlers/models/vue
+* La console est ton vraie amie (pas le voisin) pour avancer pas à pas.
+* Tu oublieras pas d'installer les dépendances et de configurer la connexion à la base de données que tu vas créer.
 
 ## Exercice 1: BackOffice de Produits E-Commerce
 
-*Objectif: Maitrise du routing, du model, du controlleur, des vues*
-
+_Objectif: Maitrise du routing, du model, du controlleur, des vues_
 
 Dans le souhait de pouvoir gérer des produits e-commerce, nous allons construire pas à pas un mini back-office gestion des produit du catalogue e-commerce.
 
-* 1. Créer une Base de données catalogue et à l'intérieur une table produit avec 5 produits insérés au choix.
+* 1.  Créer une Base de données catalogue et à l'intérieur une table produit avec 5 produits insérés au choix.
 
-
-*Voici les champs de la table:*
+_Voici les champs de la table:_
 
 * id
 * reference (String AA-XXXX-BB)
@@ -39,35 +33,30 @@ Dans le souhait de pouvoir gérer des produits e-commerce, nous allons construir
 * quantité
 * image (url distante)
 * descriptif
-* prix  (nombre décimal)
+* prix (nombre décimal)
 * tva (nombre décimal)
 * enVente (booléen)
 * createdAt
 * updatedAt
 
-
 Voici les fonctionnalités attendues:
 
-*Objectif: Algorithme sur des tableaux*
+_Objectif: Algorithme sur des tableaux_
 
+1.  Lister les 5 produits sur leur id, ref, titre, note et image dans un joli tableau Bootstrap, trié par note décroissante si possible. OK
+2.  Voir le détail complet d'un produit quand on clique sur son id, sa référence ou sur son titre OK
+3.  Pouvoir créer un produit via un formulaire (input, textarea, liste déroulante(note) et boutons radio(en vente)) OK
+4.  Pouvoir supprimer un produit de la liste OK
 
-1. Lister les 5 produits sur leur id, ref, titre, note et image dans un joli tableau Bootstrap, trié par note décroissante si possible.
-2. Voir le détail complet d'un produit quand on clique sur son id, sa référence ou sur son titre 
-3. Pouvoir créer un produit via un formulaire (input, textarea, liste déroulante(note) et boutons radio(en vente))
-4. Pouvoir supprimer un produit de la liste
+* Bonus: **Si tu as le temps**, on voudrait pouvoir mettre en vente ou pas un produit à l'aide d'un bouton qui bascule de Mise en Vente / Non Disponible (route en GET avec parametre) OK
 
-
-* Bonus: **Si tu as le temps**, on voudrait pouvoir mettre en vente ou pas un produit à l'aide d'un bouton qui bascule de Mise en Vente / Non Disponible (route en GET avec parametre)
-
-* Bonus: **Si tu as le temps**, pour chaque produit, on voudrait pouvoir augmenter et diminuer la quantité  pour chaque produit dans la liste.  (route en GET avec parametre) *
-
+* Bonus: **Si tu as le temps**, pour chaque produit, on voudrait pouvoir augmenter et diminuer la quantité pour chaque produit dans la liste. (route en GET avec parametre) OK \*
 
 En Options:
-- Messages flash
-- BackOffice Responsive
-- Font Awesome
 
-
+* Messages flash
+* BackOffice Responsive
+* Font Awesome
 
 ## Exercice 2: Algorithme de Panier des Produits
 
@@ -86,18 +75,13 @@ const produits = [
 ];
 ```
 
-1. Parmis les produits de TVA à 20%, extraire les 3 produits les plus chers afin d'en afficher leur prix TTC , c'est à dire avec TVA comprise.
+1.  Parmis les produits de TVA à 20%, extraire les 3 produits les plus chers afin d'en afficher leur prix TTC , c'est à dire avec TVA comprise.
 
+2)  Parmis tous les produits de TVA à 20%, calculer et ajouter le volume à chaque produit de la liste ,
+    le calcul se fera par Longeur(L) x largeur(l) x Hauteur.
+    Puis calculer et afficher en console le volume total de tous les produits.
 
- 2. Parmis tous les produits de TVA à 20%, calculer et ajouter le volume à chaque produit de la liste ,
-le calcul se fera par Longeur(L) x largeur(l) x Hauteur.
-Puis calculer et afficher en console le volume total de tous les produits.
- 
-
-*Bonus: Si tu as le temps:, extraire la plus petite largeur et la plus grand longueur*
-
-
-
+_Bonus: Si tu as le temps:, extraire la plus petite largeur et la plus grand longueur_
 
 A toi de jouer ! Bonne chance !
 
