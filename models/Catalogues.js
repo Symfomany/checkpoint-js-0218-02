@@ -16,7 +16,7 @@ const Catalogues = (sequelize, DataTypes) => {
       createdAt: { type: DataTypes.DATE, isDate: true },
       updatedAt: { type: DataTypes.DATE, isDate: true }
     },
-    { timestamps: false, tableName: "catalogue" }
+    { tableName: "catalogue" }
   );
 
   return Catalogues;

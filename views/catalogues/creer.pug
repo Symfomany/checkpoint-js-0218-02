@@ -15,32 +15,34 @@ block content
             label Titre
             input#inputAddress2.form-control(type='text',name="titre",required="required", placeholder="Titre de champion de France")
         
-        .form-group
+        .form-row
             label Description
             textarea#exampleFormControlTextarea1.form-control(name="descriptif",rows='3')
         
-        .input-group
-                .input-group-prepend
-                    label.input-group-text Notes
-                select#inputGroupSelect01(name="note").custom-select
-                    option(selected='') de 1 à 5
-                    option(value='1') 1
-                    option(value='2') 2
-                    option(value='3') 3
-                    option(value='4') 4
-                    option(value='5') 5
+        .form-row
+            .input-group-prepend
+                label.input-group-text Notes
+            select#inputGroupSelect01(name="note").custom-select
+                option(selected='') de 1 à 5
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
             
         .form-row
-            .form-group.col-md-6
+            .form-group
             label Quantite
-            input#inputAddress2.form-control(type='text',name="titre",required="required", placeholder="De l'infini ... à au-delà")
-            .form-group.col-md-4
+            input#inputAddress2.form-control(type='text',name="quantite",required="required", placeholder="De l'infini ... à au-delà")
+            .form-group
             label Prix
-            input#inputAddress2.form-control(type='text',name="titre",required="required", placeholder="Rajoute un zéro")
-            .form-group.col-md-2
+            input#inputAddress2.form-control(type='text',name="prix",required="required", placeholder="Rajoute un zéro")
+            .form-group
             label TVA
-            input#inputAddress2.form-control(type='text',name="titre",required="required", placeholder="TVA bien ?")
-        .form-group
+            input#inputAddress2.form-control(type='text',name="tva",required="required", placeholder="TVA bien ?")
+            label image
+            input#inputAddress2.form-control(type='text',name="image", placeholder="lien vers l'image")
+        .form-row
             .form-check
             input#gridCheck.form-check-input(type='checkbox', name="enVente")
             label.form-check-label
