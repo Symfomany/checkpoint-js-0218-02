@@ -19,7 +19,11 @@ class ProduitsController {
     res.render("produits/creer");
   }
 
-  enregistrer(req, res) {}
+  enregistrer(req, res) {
+    db.Produits.create(req.body).then(produit => {
+      res.redirect("/produits");
+    });
+  }
 
   supprimer(req, res) {
     db.Produits.findById(req.params.id).then(produit => {

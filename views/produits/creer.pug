@@ -36,12 +36,12 @@ block content
                 option 4
                 option 5
         .form-group
-            input.form-control-file(type='file', name='image')
+            input.form-control-file(type='file', name='image', accept="image/*", capture="capture")
         .form-check.form-check-inline
             input.form-check-input(type='radio', name='enVente', value='true')
             label.form-check-label(for='inlineRadio1') En vente
         .form-check.form-check-inline
-            input#inlineRadio2.form-check-input(type='radio', name='inlineRadioOptions', value='option2')
-            label.form-check-label(for='inlineRadio2') Pas en vente
+            input.form-check-input(type='radio', name='enVente', value='false')
+            label.form-check-label Pas en vente
 
-    button.btn.btn-primary(type='submit') Créer
+        button.btn.btn-primary(type='submit') Créer

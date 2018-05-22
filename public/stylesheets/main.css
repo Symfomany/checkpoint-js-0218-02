@@ -2,3 +2,15 @@ div#content {
     min-height: 600px;
     padding-top: 10px;
 }
+
+#Produits h1{
+    color: #00B2AA;
+}
+
+#Produits img{
+    width: 50%;
+}
+
+#Produits span.fa.fa-star {
+    color: rgb(246, 185, 59);
+}
