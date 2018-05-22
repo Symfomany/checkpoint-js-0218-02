@@ -71,6 +71,11 @@ for (i = 0; i < produitsTroisFiltrer.length; i++) {
   produitsTroisFiltrer[i].prixTTC =
     produitsTroisFiltrer[i].prix * (1 + produitsTroisFiltrer[i].taxe.tva / 100);
 }
+// autre solution avec map
+let jambon = produitsTroisFiltrer.map(
+  elmt => elmt.prix * (1 + elmt.taxe.tva / 100)
+);
+console.log(`Les prix des trois objets les plus élevés sont : ${jambon}`);
 
 console.log(
   `Les 3 objets dont le prix est le plus élevé ont pour prix TTC : ${
@@ -87,25 +92,40 @@ function ajoutVolume() {
   });
 }
 
-
 function calculVolumeTotal() {
   ajoutVolume();
 
   let volumeTotal = produitsTVA20.reduce((a, b) => a + b.volume, 0);
-  
-  return `le volume total est : ${volumeTotal}`
+
+  return `le volume total est : ${volumeTotal}`;
 }
 
 console.log(calculVolumeTotal());
 
-
 // ---------------------Bonus---------------------
-let longueur = produitsTVA20.map(element => element.dimension.L)
-let LMax = Math.max(...longueur)
+let longueur = produitsTVA20.map(element => element.dimension.L);
+console.log(longueur);
+let LMax = Math.max(...longueur);
 
+//autre solution avec reduce
+let longu = produitsTVA20
+  .map(element => element.dimension.L)
+  .reduce((a, b) => (a > b ? a : b));
+console.log(longu);
 
 let largeur = produitsTVA20.map(element => element.dimension.L);
 let lMin = Math.min(...largeur);
 
+//autre solution avec reduce
+let larg = produitsTVA20
+  .map(element => element.dimension.L)
+  .reduce((a, b) => (a < b ? a : b));
+console.log(larg);
 
-console.log(`la longueur maximum des produits à TVA= 20% est : ${LMax} et la plus petite largeur est : ${lMin}`);
+console.log(
+  `la longueur maximum des produits à TVA= 20% est : ${LMax} et la plus petite largeur est : ${lMin}`
+);
+
+console.log(
+  `la longueur maximum des produits à TVA= 20% est : ${longu} et la plus petite largeur est : ${larg}`
+);
