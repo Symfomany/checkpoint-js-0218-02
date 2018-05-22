@@ -1,6 +1,14 @@
 extends ../layout
 
 block content 
-    h3=produit.titre
-    each produits in produit
-        p=produit.description
+    h3=produits.titre
+        br
+        img(src=`${produits.image}`)
+    p=produits.descriptif
+    p=produits.prix
+    p=produits.note
+    p=produits.quantite
+    p=produits.reference
+    br
+    a.btn.btn-danger(href=`/supprimer${produits.id}`) Supprimer produit
+     

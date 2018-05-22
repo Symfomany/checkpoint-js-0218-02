@@ -92,8 +92,10 @@ app.use((req, res, next) => {
 
 const pages = require("./routes/pages");
 
-app.get("/", (req, res) => res.render("index"));
+
 app.use("/", pages);
+
+
 
 /**
  * 404 Page

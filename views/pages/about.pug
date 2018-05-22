@@ -2,19 +2,27 @@ extends ../layout
 
 block content
     table.table.table-bordered
-        thead
-            tr
-                th(scope='col') ID
-                th(scope='col') Reférence
-                th(scope='col') Titre
-                th(scope='col') Note
-                th(scope='col') Image
-       
-            tbody
-            each produit in produits
+            thead
                 tr
-                    td=produit.id 
-                    td=produit.reference
-                    td=produit.titre
-                    td=produit.note
-                    td=produit.image
+                    th(scope='col') ID
+                    th(scope='col') Reférence
+                    th(scope='col') Titre
+                    th(scope='col') Note
+                    th(scope='col') Image
+        
+                tbody
+                each produit in produits
+                    tr
+                        td  
+                            a(href=`/voir/${produit.id}`     )
+                                p=produit.id 
+                        td=produit.reference
+                        td=produit.titre
+                        td=produit.note
+                        td
+                            img(src=`${produit.image}`)
+                        td
+                            a.badge.badge-info(href=`/voir/${produit.id}`) Voir
+                            a.badge.badge-danger(href=`/supprimer${produit.id}`) Supprimer produit
+    a(href="/creer")
+        button.btn.btn-primary(type='button') Creer un produit

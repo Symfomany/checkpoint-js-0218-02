@@ -2,8 +2,43 @@ extends ../layout
 
 block content
     h3 Creer un produit
-    form(method='POST' action="/pages/enregistrer",enctype="multipart/form-data") 
-        input(class="form-control", required='required', pattern=`.{3,}`, name="title", placeholder=`Nom du produit`)
-        textarea(class="form-control", name="description", required, placeholder=`La description du produit`)
-        input(type="file", name="photo" accept="images/*",capture="capture")
-        button(type='submit' class="btn btn-success") Enregistrer mon nouveau produit
+        form(method="POST", action="/enregistrer", enctype="multipart/form-data")
+            .form-group
+                label Reference   
+                input.form-control(name="reference", placeholder='"AA-XXXX-BB"', required) 
+            .form-group
+                label Titre          
+                input.form-control(name="titre", placeholder='Nom du produit', required)
+            .form-group
+                label Note   
+                select(class="form-control", name ="note")
+                    option(value='1') 1
+                    option(value='2') 2 
+                    option(value='3') 3  
+                    option(value='4') 4
+                    option(value='5') 5
+            .form-group
+                label Quantité         
+                input.form-control(name="quantite", placeholder='Nombre de produit', required)
+            .form-group
+                label Image
+                br
+                input(type="file", name="image", accept, required)        
+            .form-group
+                label Descriptif  
+                input.form-control(name="descriptif", placeholder='Descriptif du produit', required)
+            .form-group
+                label TVA         
+                input.form-control(name="tva", placeholder='Taxe du produit', required)
+            .form-group
+                label Prix         
+                input.form-control(name="prix", placeholder='prix', required)
+            .form-check
+                input.form-check-input(type='radio', name='enVente', value='0',)
+                label.form-check-label(for='exampleRadios1')
+                | En vente
+            .form-check
+                input.form-check-input(type='radio', name='enVente', value='1')
+                label.form-check-label(for='exampleRadios2')
+                | Pas en vente
+            button.btn.btn-primary(type='submit') Submit

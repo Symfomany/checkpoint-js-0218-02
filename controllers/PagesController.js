@@ -16,7 +16,7 @@ class PagesController {
   }
 
   voir(req, res) {
-    db.produit.findAll({ where: {id: req.params.id } }).then(produits => {
+    db.produit.findById(req.params.id).then(produits => {
       res.render("pages/voir", { produits });
     });
   }
@@ -26,16 +26,19 @@ class PagesController {
   }
 
   enregistrer(req, res) {
-    
+    // recuperer mes donnees en POST
+    console.log(req.body);
     db.produit.create(req.body).then(produits =>
-      res.redirect(`/pages/about`)
+      res.redirect("/")
     );
   }
 
   supprimer(req, res) {
     db.produit.findById(req.params.id).then(produits => {
-      produit.destroy();
-      res.redirect("/pages/about");  
+      produits.destroy().then(() => {
+        res.redirect("/"), { produits }
+      })
+
     });
   }
 }
